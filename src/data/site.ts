@@ -5,8 +5,12 @@ export const siteConfig: SiteConfig = {
   shortName: "GALAGOM",
   description: "Servicios de transporte y logística en Cancún y Quintana Roo.",
   url: "https://www.galagom.com",
-  phone: "+52 998 222 5373",
-  phoneHref: "tel:+529982225373",
+  phone: {
+    local: "9982225373",
+    display: "998 222 5373",
+    international: "+529982225373",
+    telHref: "tel:+529982225373",
+  },
   location: "Cancún, Quintana Roo, México",
   email: "hola@galagom.com",
   navigation: [
@@ -18,7 +22,6 @@ export const siteConfig: SiteConfig = {
   ],
   whatsapp: {
     phone: "529982225373",
-    displayPhone: "+52 998 222 5373",
     message: "Hola, me gustaría solicitar información y una cotización sobre los servicios de GALAGOM.",
   },
 };

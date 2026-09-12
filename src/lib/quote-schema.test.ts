@@ -3,7 +3,7 @@ import { quoteSchema } from "@/lib/quote-schema";
 
 const validPayload = {
   name: "María López",
-  phone: "+52 (998) 222-5373",
+  phone: "998 222 5373",
   email: "maria@example.com",
   service: "Carga nacional y local",
   origin: "Cancún, Quintana Roo",

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import { siteConfig } from "@/data/site";
 import type { NavItem } from "@/types/site";
 
 const menuItems: NavItem[] = [
@@ -89,7 +90,7 @@ export default function MobileNavigation() {
           <Link className="flex h-14 w-full items-center justify-center gap-3 rounded-xl bg-primary text-base font-bold text-white transition-colors duration-200 hover:bg-primary-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary" href="/#cotizar" onClick={() => setIsOpen(false)}>Cotizar flete<span aria-hidden="true" className="text-lg transition-transform duration-200 group-hover:translate-x-1">→</span></Link>
           <div className="mt-8 text-center">
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-secondary">Llámanos</p>
-            <a className="mt-2 inline-block text-sm font-semibold text-primary transition-colors duration-200 hover:text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary" href="tel:+529982225373">+52 998 222 5373</a>
+            <a className="mt-2 inline-block text-sm font-semibold text-primary transition-colors duration-200 hover:text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary" href={siteConfig.phone.telHref}>{siteConfig.phone.display}</a>
           </div>
         </footer>
       </div>

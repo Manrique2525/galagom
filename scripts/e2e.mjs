@@ -15,7 +15,7 @@ await page.getByRole("button", { name: /Solicitar cotización/ }).click();
 if (await page.locator("p[role=alert]").count() < 7) throw new Error("Invalid form did not expose all required field errors.");
 
 await page.locator("#name").fill("María López");
-await page.locator("#phone").fill("+52 998 222 5373");
+await page.locator("#phone").fill("998 222 5373");
 await page.locator("#email").fill("maria@example.com");
 await page.locator("#service").selectOption({ label: "Carga nacional y local" });
 await page.locator("#origin").fill("Cancún, Quintana Roo");
