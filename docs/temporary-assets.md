@@ -1,18 +1,32 @@
-# Temporary photography
+# Photography (assets finales)
 
-Estas imágenes son material temporal de Pexels. No representan la flota, personal, almacenes ni instalaciones de GALAGOM. Deben sustituirse por fotografías corporativas confirmadas cuando estén disponibles.
+Las fotografías temporales de Pexels fueron reemplazadas por assets suministrados por GALAGOM.
 
-| Archivo local | Fuente | URL original | Autor | Photo ID | Uso | Reemplazo GALAGOM necesario | Proporción recomendada | Estado |
-| --- | --- | --- | --- | ---: | --- | --- | --- | --- |
-| `public/images/temporary/logistics-hero.webp` | Pexels | <https://www.pexels.com/photo/truck-in-front-of-a-warehouse-18885403/> | Mak_ jp | 18885403 | Visual principal del panel Hero | Unidad GALAGOM u operación de carga | 16:10 aprox. | TEMPORAL |
-| `public/images/temporary/freight-truck.webp` | Pexels | <https://www.pexels.com/photo/delivery-man-pulling-a-trolley-with-carton-boxes-6169178/> | Tima Miroshnichenko | 6169178 | Card de Fletes Isla Mujeres y Cozumel | Transporte o carga GALAGOM | 4:3 aprox. | TEMPORAL |
-| `public/images/temporary/warehouse.webp` | Pexels | <https://www.pexels.com/photo/221047/> | Pixabay | 221047 | Card de Almacenaje | Almacén o bodega GALAGOM | 4:3 aprox. | TEMPORAL |
-| `public/images/temporary/logistics-worker.webp` | Pexels | <https://www.pexels.com/photo/man-working-in-logistics-6169640/> | Tima Miroshnichenko | 6169640 | Visual editorial de Nosotros | Personal GALAGOM validado | 4:3 aprox. | TEMPORAL |
-| `public/images/temporary/services/national-cargo.webp` | Pexels | <https://www.pexels.com/photo/trucks-by-warehouse-18468444/> | Robert So | 18468444 | Card de Carga nacional y local | Camión u operación de carga GALAGOM | 16:10 aprox. | TEMPORAL |
-| `public/images/temporary/services/fulfillment-warehouse.webp` | Pexels | <https://www.pexels.com/photo/workers-in-warehouse-4483862/> | Tiger Lily | 4483862 | Card de Soluciones 3PL | Operación 3PL o almacén GALAGOM | 16:10 aprox. | TEMPORAL |
+## Assets finales
 
-Las páginas de Pexels consultadas indican que las imágenes son de uso libre bajo la licencia de Pexels (la foto 221047 aparece además como CC0). Las imágenes están guardadas localmente como WebP y se sirven con `next/image`; no se hace hotlinking.
+Los archivos se encuentran en `public/images/lading/` (carpeta `lading`, tal y como fue creada por el usuario).
 
-## Sustitución
+| Archivo local | Uso | Alt |
+| --- | --- | --- |
+| `public/images/lading/hero.jpeg` | Visual principal del Hero | Operación de transporte y logística |
+| `public/images/lading/acerca.jpeg` | Sección Nosotros / Acerca de GALAGOM | Servicios logísticos y de transporte |
+| `public/images/lading/1.jpeg` | Card Fletes Isla Mujeres y Cozumel | Servicio de transporte de carga |
+| `public/images/lading/2.jpeg` | Card Recolección y reparto | Operación de recolección y reparto |
+| `public/images/lading/3.jpeg` | Card Almacenaje | Operación de almacenaje |
+| `public/images/lading/4.jpeg` | Card Carga nacional y local | Transporte de carga nacional y local |
+| `public/images/lading/6.jpeg` | Card Soluciones 3PL y sección grande 3PL (fondo) | Operación logística 3PL / decorativo (`alt=""` en el fondo) |
 
-Reemplazar los archivos conservando las rutas locales o actualizar las referencias en `hero.tsx`, `about-section.tsx` y `services.ts`. Revisar nuevamente `alt`, recortes, peso y licencia antes de publicar fotografías corporativas.
+El asset `5` no fue proporcionado; por decisión del usuario la card de Soluciones 3PL y el fondo de la sección 3PL reutilizan `6.jpeg`.
+
+## Estado anterior (histórico)
+
+Las imágenes de Pexels anteriormente registradas y documentadas aquí fueron eliminadas del repositorio al quedar huérfanas:
+
+- `public/images/temporary/logistics-hero.webp`
+- `public/images/temporary/freight-truck.webp`
+- `public/images/temporary/warehouse.webp`
+- `public/images/temporary/logistics-worker.webp`
+- `public/images/temporary/services/national-cargo.webp`
+- `public/images/temporary/services/fulfillment-warehouse.webp`
+
+Ya no hay imágenes de stock activas en la landing.
