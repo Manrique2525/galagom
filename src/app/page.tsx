@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return <><SiteStructuredData />
     <Hero />
-    <section id="servicios" className="bg-white py-20 sm:py-28"><Container><SectionHeading level={2} eyebrow="Nuestros servicios" heading="Soluciones logísticas para cada etapa de tu operación" description="Desde la recolección hasta el destino final, coordinamos servicios de transporte, almacenaje y distribución de acuerdo con tus necesidades." /><div className="mt-12 sm:mt-16"><ServicesGrid /></div></Container></section>
+    <section id="servicios" className="bg-surface py-[var(--section-space-mobile)] sm:py-[var(--section-space-desktop)]"><Container><SectionHeading level={2} eyebrow="Nuestros servicios" heading="Soluciones para mover tu operación" description="Desde la recolección hasta el destino final, coordinamos servicios de transporte, almacenaje y distribución de acuerdo con tus necesidades." /><div className="mt-12 sm:mt-16"><ServicesGrid /></div></Container></section>
     <ProcessSection />
     <CoverageSection />
     <AboutSection />

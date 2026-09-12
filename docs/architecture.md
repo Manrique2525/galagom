@@ -90,7 +90,7 @@ components/
 - Componentes con export default y una responsabilidad clara.
 - HTML semántico, landmarks y enlaces reales.
 - `Button` usa `Link` para destinos navegables y `<button>` para acciones nativas.
-- Los IDs de homepage son `servicios`, `proceso`, `cobertura`, `nosotros`, `unidades`, `3pl` y `contacto`.
+- Los IDs de homepage son `servicios`, `proceso`, `cobertura`, `nosotros`, `3pl`, `cotizar` y `contacto`.
 - No se publica structured data específico de la cotización.
 
 ## Metadata y assets

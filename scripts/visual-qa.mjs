@@ -32,8 +32,15 @@ for (const path of pages) {
     if (h1Count !== 1) issues.push(`${path} has ${h1Count} H1 elements`);
     if (consoleErrors.length) issues.push(`${path} console errors at ${width}px: ${consoleErrors.join(" | ")}`);
     if (path === "/" && width === 390) await page.locator('[data-map-status="ready"]').waitFor({ timeout: 10000 });
+    if (path === "/" && (width === 390 || width === 1440)) {
+      const requiredSections = [["hero-section", width === 390 ? "v3-hero-mobile" : "v3-hero-desktop"], ["servicios", width === 390 ? "v3-services-mobile" : "v3-services-desktop"]];
+      for (const [id, file] of requiredSections) {
+        const section = page.locator(`#${id}`);
+        await section.screenshot({ path: `docs/screenshots/${file}.png` });
+      }
+    }
     if (path === "/" && width === 1440) {
-      for (const [id, file] of [["hero-section", "v2-hero"], ["servicios", "v2-services"], ["proceso", "v2-process"], ["cobertura", "v2-map"], ["3pl", "v2-3pl"], ["cotizar", "v2-quote"]]) {
+      for (const [id, file] of [["proceso", "v2-process"], ["cobertura", "v2-map"], ["3pl", "v2-3pl"], ["cotizar", "v2-quote"]]) {
         const section = id === "3pl" ? page.locator('[id="3pl"]') : page.locator(`#${id}`);
         await section.screenshot({ path: `docs/screenshots/${file}.png` });
       }
@@ -80,6 +87,7 @@ for (const path of pages) {
     if (path === "/" && width === 390) await page.screenshot({ path: "docs/screenshots/photo-home-390.png", fullPage: true });
     if (path === "/" && width === 390) await page.screenshot({ path: "docs/screenshots/home-premium-390.png", fullPage: true });
     if (path === "/" && [390, 768, 1440, 1920].includes(width)) await page.screenshot({ path: `docs/screenshots/v2-home-${width}.png`, fullPage: true });
+    if (path === "/" && [390, 1440].includes(width)) await page.screenshot({ path: `docs/screenshots/v3-home-${width}.png`, fullPage: true });
     if (path === "/" && width === 1440) await page.locator("footer").screenshot({ path: "docs/screenshots/v2-footer.png" });
     if (path === "/cotizar" && width === 1440) await page.screenshot({ path: "docs/screenshots/photo-quote-1440.png", fullPage: true });
     if (path === "/cotizar" && width === 390) await page.screenshot({ path: "docs/screenshots/photo-quote-390.png", fullPage: true });

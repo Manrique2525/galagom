@@ -81,7 +81,7 @@ Los fondos del hero, cobertura y CTA usan exclusivamente la gama azul corporativ
 
 Las fotografías actuales de Pexels son un recurso temporal y siempre se presentan como contexto de transporte/logística, nunca como flota, personal o instalaciones de GALAGOM. Se usa overlay azul corporativo y `object-cover` para integrarlas con los diagramas. El Hero es la única imagen con `priority`; las imágenes de cards y Nosotros son lazy por defecto. Fuentes y sustitución: `docs/temporary-assets.md`.
 
-## Premium V2 tokens
+## Premium V3 tokens
 
 - `--section-space-desktop`: espacio vertical compartido para secciones editoriales amplias.
 - `--section-space-mobile`: ritmo vertical compacto para móvil.
