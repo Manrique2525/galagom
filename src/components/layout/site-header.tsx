@@ -12,9 +12,12 @@ export default function SiteHeader() {
   useEffect(() => {
     const hero = document.getElementById("hero-section");
     if (!hero) return;
+    const syncScroll = () => setIsScrolled(window.scrollY > 24);
     const observer = new IntersectionObserver(([entry]) => setIsScrolled(!entry.isIntersecting), { threshold: 0.05 });
     observer.observe(hero);
-    return () => observer.disconnect();
+    syncScroll();
+    window.addEventListener("scroll", syncScroll, { passive: true });
+    return () => { observer.disconnect(); window.removeEventListener("scroll", syncScroll); };
   }, []);
 
   return <header className={`fixed inset-x-0 top-0 z-50 transition-colors duration-[var(--motion-base)] ${isScrolled ? "border-b border-border bg-white/95 text-primary shadow-sm backdrop-blur" : "bg-transparent text-white"}`} id="inicio">

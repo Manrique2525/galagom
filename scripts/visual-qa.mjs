@@ -26,6 +26,8 @@ for (const path of pages) {
     const h1Count = await page.locator("h1").count();
     if (h1Count !== 1) issues.push(`${path} has ${h1Count} H1 elements`);
     if (consoleErrors.length) issues.push(`${path} console errors at ${width}px: ${consoleErrors.join(" | ")}`);
+    if (path === "/" && width === 1440) await page.screenshot({ path: "docs/screenshots/hotfix-home-top-1440.png" });
+    if (path === "/" && width === 390) await page.screenshot({ path: "docs/screenshots/hotfix-home-390.png" });
     await page.evaluate(async () => {
       for (let y = 0; y < document.body.scrollHeight; y += window.innerHeight) {
         window.scrollTo(0, y);
@@ -38,6 +40,9 @@ for (const path of pages) {
     if (path === "/" && width === 1440) await page.screenshot({ path: "docs/screenshots/home-1440.png", fullPage: true });
     if (path === "/cotizar" && width === 390) await page.screenshot({ path: "docs/screenshots/quote-390.png", fullPage: true });
     if (path === "/cotizar" && width === 1440) await page.screenshot({ path: "docs/screenshots/quote-1440.png", fullPage: true });
+    if (path === "/" && width === 1440) await page.screenshot({ path: "docs/screenshots/hotfix-home-full-1440.png", fullPage: true });
+    if (path === "/cotizar" && width === 390) await page.screenshot({ path: "docs/screenshots/hotfix-quote-390.png", fullPage: true });
+    if (path === "/cotizar" && width === 1440) await page.screenshot({ path: "docs/screenshots/hotfix-quote-1440.png", fullPage: true });
     if (path === "/" && width === 390) {
       const menuButton = page.getByRole("button", { name: "Abrir menú" });
       await menuButton.click();
