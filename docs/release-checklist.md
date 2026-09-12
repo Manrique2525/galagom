@@ -21,6 +21,8 @@
 - [ ] Sitemap.
 - [ ] Robots.
 - [ ] Form submission test real.
+- [ ] WhatsApp wa.me está vinculado al canal oficial.
+- [ ] WhatsApp tooltip y mensaje prefijado revisados. `npm run qa:whatsapp`.
 
 ## Verificaciones técnicas
 
@@ -30,6 +32,8 @@
 - [ ] `npm run build`.
 - [ ] `npm run qa:visual`.
 - [ ] `npm run test:e2e` sin credenciales reales.
+- [ ] `npm run qa:mobile-menu`.
+- [ ] `npm run qa:whatsapp`.
 - [ ] HTTP smoke de `/`, `/cotizar` redirect, `/#cotizar`, `/privacidad`, `/robots.txt`, `/sitemap.xml` y 404.
 - [ ] Revisar headers y requests de terceros en producción.
 

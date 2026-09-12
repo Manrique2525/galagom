@@ -49,8 +49,34 @@
 
 .mobile-drawer { animation: mobile-drawer-in 260ms cubic-bezier(0.16, 1, 0.3, 1); }
 
+@keyframes whatsapp-in {
+  from { opacity: 0; transform: scale(0.86) translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes whatsapp-ring {
+  0% { opacity: 0.5; transform: scale(1); }
+  70% { opacity: 0; }
+  100% { opacity: 0; transform: scale(1.65); }
+}
+
+.whatsapp-float { animation: whatsapp-in 380ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+.whatsapp-float::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 9999px;
+  box-shadow: 0 0 0 2px #25d366;
+  animation: whatsapp-ring 1500ms cubic-bezier(0.16, 1, 0.3, 1) 800ms 1 both;
+  pointer-events: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
   .hero-reveal { animation: none !important; opacity: 1 !important; transform: none !important; }
+  .whatsapp-float, .whatsapp-float::after { animation: none !important; opacity: 1 !important; transform: none !important; }
+  .whatsapp-float::after { display: none !important; }
 }

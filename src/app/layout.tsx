@@ -3,6 +3,7 @@ import { Manrope } from "next/font/google";
 import SiteFooter from "@/components/layout/site-footer";
 import SiteHeader from "@/components/layout/site-header";
 import SkipLink from "@/components/layout/skip-link";
+import WhatsAppFloatingButton from "@/components/ui/whatsapp-floating-button";
 import { siteConfig } from "@/data/site";
 import "./globals.css";
 
@@ -26,6 +27,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <SiteHeader />
       <main id="main-content">{children}</main>
       <SiteFooter />
+      <WhatsAppFloatingButton />
     </body>
   </html>;
 }

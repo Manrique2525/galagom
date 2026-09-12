@@ -31,3 +31,11 @@ El formulario solicita únicamente nombre, teléfono, correo, servicio, origen, 
 ## Third-party network requests
 
 Leaflet solicita inicialmente tiles de OpenStreetMap desde el navegador y mantiene su attribution visible; la política de consentimiento deberá revisarse junto con la implementación legal definitiva.
+
+## WhatsApp CTA
+
+Existe un botón flotante de WhatsApp (`wa.me/529982225373`) accesible desde toda la página con tooltip y hook de analítica `data-event="whatsapp_click"`. El mensaje prefijado no recopila datos personales, pero el mensaje enviado ocurre fuera del sitio (servicio externo de Meta). Antes de producción:
+
+- Confirmar que la cuenta vinculada al `wa.me` es el canal oficial de ventas.
+- Coordinar el mensaje de bienvenida/automatización para indicar quién y con qué datos responderá.
+- Añadir la referencia a WhatsApp como canal de contacto en la política de terceros si se conserva el botón.
