@@ -11,8 +11,8 @@ import SectionHeading from "@/components/ui/section-heading";
 import SiteStructuredData from "@/components/seo/site-structured-data";
 
 export const metadata: Metadata = {
-  title: "Transporte y Logística en Cancún",
-  description: "Transporte de carga, distribución, almacenaje y logística 3PL en Cancún y Quintana Roo. Soluciones integrales con presencia desde 2007.",
+  title: "Transporte y logística nacional en México",
+  description: "Soluciones de transporte, carga, almacenaje y logística con cobertura nacional en México. GALAGOM conecta operaciones desde Tijuana hasta Quintana Roo.",
   alternates: { canonical: "/" },
 };
 

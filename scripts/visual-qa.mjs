@@ -61,7 +61,7 @@ for (const path of pages) {
     }
     if (path === "/" && width === 390) {
       try { await page.locator('[data-map-status="ready"]').waitFor({ state: "attached", timeout: 10000 }); } catch { issues.push("Leaflet map did not reach ready state"); }
-      if (await page.locator(".leaflet-marker-icon").count() !== 4) issues.push("Leaflet map does not expose four markers");
+      if (await page.locator(".leaflet-marker-icon").count() !== 2) issues.push("Leaflet map does not expose the two national markers");
     }
     if (path === "/" && width === 1440) await page.screenshot({ path: "docs/screenshots/header-home-overlay.png" });
     if (path === "/" && width === 1440) await page.screenshot({ path: "docs/screenshots/navbar-logo-large-1440.png" });
