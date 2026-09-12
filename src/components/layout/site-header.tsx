@@ -26,7 +26,7 @@ export default function SiteHeader() {
         {siteConfig.navigation.map((item) => <Link className={`text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary ${isScrolled ? "text-secondary hover:text-primary" : "text-white/80 hover:text-white"}`} href={item.href} key={item.href}>{item.label}</Link>)}
         <Link className="rounded-sm bg-primary px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-primary-soft focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary" href="/cotizar">Cotizar flete</Link>
       </nav>
-      <MobileNavigation items={siteConfig.navigation} />
+      <MobileNavigation items={siteConfig.navigation} isScrolled={isScrolled} />
     </div>
   </header>;
 }

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import type { NavItem } from "@/types/site";
 
-export default function MobileNavigation({ items }: { items: NavItem[] }) {
+export default function MobileNavigation({ items, isScrolled }: { items: NavItem[]; isScrolled: boolean }) {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ export default function MobileNavigation({ items }: { items: NavItem[] }) {
   }, [isOpen]);
 
   return <div className="lg:hidden">
-    <button type="button" className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-sm border border-border text-primary focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-primary" aria-expanded={isOpen} aria-controls="mobile-menu" aria-label={isOpen ? "Cerrar menú" : "Abrir menú"} onClick={() => setIsOpen((open) => !open)}>
+    <button type="button" className={`inline-flex min-h-11 min-w-11 items-center justify-center rounded-sm border focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-primary ${isScrolled ? "border-border text-primary" : "border-white/50 text-white"}`} aria-expanded={isOpen} aria-controls="mobile-menu" aria-label={isOpen ? "Cerrar menú" : "Abrir menú"} onClick={() => setIsOpen((open) => !open)}>
       <span aria-hidden="true" className="text-xl leading-none">{isOpen ? "×" : "☰"}</span>
     </button>
     {isOpen && <nav id="mobile-menu" className="absolute inset-x-0 top-20 z-40 border-b border-border bg-white px-5 py-5 shadow-[var(--shadow-soft)]" aria-label="Navegación móvil">

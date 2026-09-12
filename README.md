@@ -42,7 +42,10 @@ Abrir `http://localhost:3000`.
 npm run lint
 npm run typecheck
 npm run build
+npm run qa:visual
 ```
+
+`qa:visual` requiere un servidor local activo, por ejemplo `npm run dev`, y genera las capturas de revisión en `docs/screenshots/`.
 
 ## Estructura
 

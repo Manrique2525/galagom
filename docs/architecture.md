@@ -9,7 +9,7 @@
 - ESLint `9` con configuración de Next.
 - Manrope con `next/font`.
 
-Se añadió `motion` para los reveals ligeros de Homepage Core. No se instalaron Lucide, React Hook Form, Zod, mapas, Playwright ni UI kits.
+Se añadió `motion` para los reveals ligeros de Homepage Core. Playwright está instalado únicamente como `devDependency` para QA visual y smoke checks. No se instalaron Lucide, mapas ni UI kits.
 
 ## Rendering
 

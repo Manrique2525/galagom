@@ -6,11 +6,15 @@ function ServiceIcon({ icon }: Pick<Service, "icon">) {
   return <svg aria-hidden="true" focusable="false" className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d={paths[icon]} /></svg>;
 }
 
-export default function ServiceCard({ service, className = "" }: { service: Service; className?: string }) {
-  return <article className={`group relative flex min-h-64 flex-col justify-between overflow-hidden rounded-[var(--radius-md)] border border-border bg-white p-6 transition-all duration-[var(--motion-base)] hover:-translate-y-1 hover:border-primary-soft hover:shadow-[var(--shadow-soft)] sm:p-8 ${className}`}>
-    <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-primary/[0.035] transition-transform duration-[var(--motion-base)] group-hover:scale-150" />
-    <div className="relative flex items-start justify-between"><span className="text-xs font-bold tracking-[0.18em] text-secondary">{service.index}</span><span className="text-primary-soft"><ServiceIcon icon={service.icon} /></span></div>
-    <div className="relative mt-12"><h3 className="max-w-xs text-xl font-extrabold leading-tight tracking-[-0.025em] text-text">{service.title}</h3><p className="mt-3 max-w-sm text-sm leading-6 text-text-muted">{service.description}</p></div>
-    <Link className="relative mt-7 inline-flex w-fit items-center gap-2 text-xs font-bold uppercase tracking-[0.15em] text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary" href="/cotizar">Solicitar servicio <span className="transition-transform duration-[var(--motion-fast)] group-hover:translate-x-1" aria-hidden="true">→</span></Link>
+export default function ServiceCard({ service, featured = false }: { service: Service; featured?: boolean }) {
+  const text = featured ? "text-white" : "text-text";
+  const muted = featured ? "text-white/70" : "text-text-muted";
+  const index = featured ? "text-white/60" : "text-secondary";
+  const link = featured ? "text-white" : "text-primary";
+  return <article className={`group relative flex min-h-64 flex-col justify-between overflow-hidden rounded-[var(--radius-md)] border p-6 transition-all duration-[var(--motion-base)] hover:-translate-y-1 hover:border-primary-soft hover:shadow-[var(--shadow-soft)] sm:p-8 ${featured ? "border-primary bg-primary" : "border-border bg-white"}`}>
+    <div className={`absolute -right-10 -top-10 h-32 w-32 rounded-full transition-transform duration-[var(--motion-base)] group-hover:scale-150 ${featured ? "bg-white/[0.08]" : "bg-primary/[0.035]"}`} />
+    <div className="relative flex items-start justify-between"><span className={`text-xs font-bold tracking-[0.18em] ${index}`}>{service.index}</span><span className={featured ? "text-white/70" : "text-primary-soft"}><ServiceIcon icon={service.icon} /></span></div>
+    <div className="relative mt-12"><h3 className={`max-w-xs text-xl font-extrabold leading-tight tracking-[-0.025em] ${text}`}>{service.title}</h3><p className={`mt-3 max-w-sm text-sm leading-6 ${muted}`}>{service.description}</p></div>
+    <Link className={`relative mt-7 inline-flex w-fit items-center gap-2 text-xs font-bold uppercase tracking-[0.15em] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary ${link}`} href="/cotizar">Solicitar servicio <span className="transition-transform duration-[var(--motion-fast)] group-hover:translate-x-1" aria-hidden="true">→</span></Link>
   </article>;
 }
