@@ -1,0 +1,359 @@
+{
+  "generatedAt": "2026-09-12T18:17:45.258Z",
+  "baseUrl": "http://localhost:3001",
+  "mode": "production (next build + next start)",
+  "totalLinks": 45,
+  "bySource": {
+    "/": [
+      {
+        "href": "#main-content",
+        "text": "Saltar al contenido",
+        "type": "samePageFragment"
+      },
+      {
+        "href": "/",
+        "text": "GALAGOM, ir al inicio",
+        "type": "internalPage"
+      },
+      {
+        "href": "/",
+        "text": "Inicio",
+        "type": "internalPage"
+      },
+      {
+        "href": "/#servicios",
+        "text": "Servicios",
+        "type": "samePageFragment"
+      },
+      {
+        "href": "/#cobertura",
+        "text": "Cobertura",
+        "type": "samePageFragment"
+      },
+      {
+        "href": "/#nosotros",
+        "text": "Nosotros",
+        "type": "samePageFragment"
+      },
+      {
+        "href": "/#cotizar",
+        "text": "Contacto",
+        "type": "samePageFragment"
+      },
+      {
+        "href": "/#cotizar",
+        "text": "Cotizar flete",
+        "type": "samePageFragment"
+      },
+      {
+        "href": "/#cotizar",
+        "text": "Cotizar un flete ↗",
+        "type": "samePageFragment"
+      },
+      {
+        "href": "#servicios",
+        "text": "Conocer servicios ↓",
+        "type": "samePageFragment"
+      },
+      {
+        "href": "/#cotizar",
+        "text": "SOLICITAR SERVICIO →",
+        "type": "samePageFragment"
+      },
+      {
+        "href": "/#cotizar",
+        "text": "SOLICITAR SERVICIO →",
+        "type": "samePageFragment"
+      },
+      {
+        "href": "/#cotizar",
+        "text": "SOLICITAR SERVICIO →",
+        "type": "samePageFragment"
+      },
+      {
+        "href": "/#cotizar",
+        "text": "SOLICITAR SERVICIO →",
+        "type": "samePageFragment"
+      },
+      {
+        "href": "/#cotizar",
+        "text": "SOLICITAR SERVICIO →",
+        "type": "samePageFragment"
+      },
+      {
+        "href": "/#cotizar",
+        "text": "Cotizar una ruta ↗",
+        "type": "samePageFragment"
+      },
+      {
+        "href": "tel:+529982225373",
+        "text": "llamar al 998 222 5373",
+        "type": "tel"
+      },
+      {
+        "href": "/privacidad",
+        "text": "Aviso de privacidad",
+        "type": "internalPage"
+      },
+      {
+        "href": "tel:+529982225373",
+        "text": "998 222 5373",
+        "type": "tel"
+      },
+      {
+        "href": "/privacidad",
+        "text": "Aviso de privacidad",
+        "type": "internalPage"
+      },
+      {
+        "href": "https://wa.me/529982225373?text=Hola%2C%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20y%20una%20cotizaci%C3%B3n%20sobre%20los%20servicios%20de%20GALAGOM.",
+        "text": "Escríbenos por WhatsApp",
+        "type": "whatsapp"
+      }
+    ],
+    "/privacidad": [
+      {
+        "href": "#main-content",
+        "text": "Saltar al contenido",
+        "type": "samePageFragment"
+      },
+      {
+        "href": "/",
+        "text": "GALAGOM, ir al inicio",
+        "type": "internalPage"
+      },
+      {
+        "href": "/",
+        "text": "Inicio",
+        "type": "internalPage"
+      },
+      {
+        "href": "/#servicios",
+        "text": "Servicios",
+        "type": "samePageFragment"
+      },
+      {
+        "href": "/#cobertura",
+        "text": "Cobertura",
+        "type": "samePageFragment"
+      },
+      {
+        "href": "/#nosotros",
+        "text": "Nosotros",
+        "type": "samePageFragment"
+      },
+      {
+        "href": "/#cotizar",
+        "text": "Contacto",
+        "type": "samePageFragment"
+      },
+      {
+        "href": "/#cotizar",
+        "text": "Cotizar flete",
+        "type": "samePageFragment"
+      },
+      {
+        "href": "tel:+529982225373",
+        "text": "998 222 5373",
+        "type": "tel"
+      },
+      {
+        "href": "/privacidad",
+        "text": "Aviso de privacidad",
+        "type": "internalPage"
+      },
+      {
+        "href": "https://wa.me/529982225373?text=Hola%2C%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20y%20una%20cotizaci%C3%B3n%20sobre%20los%20servicios%20de%20GALAGOM.",
+        "text": "Escríbenos por WhatsApp",
+        "type": "whatsapp"
+      }
+    ],
+    "/404": [
+      {
+        "href": "#main-content",
+        "text": "Saltar al contenido",
+        "type": "samePageFragment"
+      },
+      {
+        "href": "/",
+        "text": "GALAGOM, ir al inicio",
+        "type": "internalPage"
+      },
+      {
+        "href": "/",
+        "text": "Inicio",
+        "type": "internalPage"
+      },
+      {
+        "href": "/#servicios",
+        "text": "Servicios",
+        "type": "samePageFragment"
+      },
+      {
+        "href": "/#cobertura",
+        "text": "Cobertura",
+        "type": "samePageFragment"
+      },
+      {
+        "href": "/#nosotros",
+        "text": "Nosotros",
+        "type": "samePageFragment"
+      },
+      {
+        "href": "/#cotizar",
+        "text": "Contacto",
+        "type": "samePageFragment"
+      },
+      {
+        "href": "/#cotizar",
+        "text": "Cotizar flete",
+        "type": "samePageFragment"
+      },
+      {
+        "href": "/",
+        "text": "Volver al inicio",
+        "type": "internalPage"
+      },
+      {
+        "href": "/#cotizar",
+        "text": "Solicitar cotización",
+        "type": "samePageFragment"
+      },
+      {
+        "href": "tel:+529982225373",
+        "text": "998 222 5373",
+        "type": "tel"
+      },
+      {
+        "href": "/privacidad",
+        "text": "Aviso de privacidad",
+        "type": "internalPage"
+      },
+      {
+        "href": "https://wa.me/529982225373?text=Hola%2C%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20y%20una%20cotizaci%C3%B3n%20sobre%20los%20servicios%20de%20GALAGOM.",
+        "text": "Escríbenos por WhatsApp",
+        "type": "whatsapp"
+      }
+    ]
+  },
+  "classified": {
+    "internalPage": 11,
+    "samePageFragment": 27,
+    "crossPageFragment": 0,
+    "redirect": 0,
+    "externalHttps": 0,
+    "whatsapp": 3,
+    "tel": 4,
+    "mailto": 0,
+    "invalid": 0
+  },
+  "redirects": [
+    {
+      "from": "/cotizar",
+      "to": "http://localhost:3001/#cotizar"
+    },
+    {
+      "from": "/cotizar",
+      "to": "/cotizar"
+    }
+  ],
+  "anchors": [],
+  "duplicateIds": [],
+  "broken": [],
+  "warnings": [
+    "keyboard: skip-link no focuseado en 15 tabs"
+  ],
+  "consoleErrors": [],
+  "pageErrors": [],
+  "networkFailures": [],
+  "hydrations": [],
+  "checked": [
+    {
+      "width": 320,
+      "height": 800,
+      "links": 24
+    },
+    {
+      "width": 375,
+      "height": 812,
+      "links": 24
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "links": 24
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "links": 24
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "links": 24
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "links": 24
+    },
+    {
+      "width": 1280,
+      "height": 800,
+      "links": 24
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "links": 24
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "links": 24
+    }
+  ],
+  "matrix": {
+    "desktop:Inicio": {
+      "href": "/",
+      "url": "http://localhost:3001/",
+      "ok": true
+    },
+    "desktop:Servicios": {
+      "href": "/#servicios",
+      "url": "http://localhost:3001/#servicios",
+      "ok": true
+    },
+    "desktop:Cobertura": {
+      "href": "/#cobertura",
+      "url": "http://localhost:3001/#cobertura",
+      "ok": true
+    },
+    "desktop:Nosotros": {
+      "href": "/#nosotros",
+      "url": "http://localhost:3001/#nosotros",
+      "ok": true
+    },
+    "desktop:Contacto": {
+      "href": "/#cotizar",
+      "url": "http://localhost:3001/#cotizar",
+      "ok": true
+    },
+    "desktop:Cotizar flete": {
+      "href": "/#cotizar",
+      "url": "http://localhost:3001/#cotizar",
+      "ok": true
+    }
+  },
+  "leafletExcluded": 0,
+  "httpErrors": [],
+  "mailtoAudit": {
+    "found": 0,
+    "note": "mailto: ninguno en la UI (siteConfig.email existe pero no se expone como enlace)"
+  },
+  "checksSummary": {
+    "broken": [],
+    "issues": []
+  }
+}

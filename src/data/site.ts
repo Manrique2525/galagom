@@ -18,7 +18,7 @@ export const siteConfig: SiteConfig = {
     { label: "Servicios", href: "/#servicios" },
     { label: "Cobertura", href: "/#cobertura" },
     { label: "Nosotros", href: "/#nosotros" },
-    { label: "Contacto", href: "/#contacto" },
+    { label: "Contacto", href: "/#cotizar" },
   ],
   whatsapp: {
     phone: "529982225373",
