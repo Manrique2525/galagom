@@ -1,6 +1,6 @@
 # Reporte de integridad de enlaces y navegación
 
-- Fecha: 2026-09-12T18:17:45.258Z
+- Fecha: 2026-09-12T18:43:50.040Z
 - BASE_URL: http://localhost:3001
 - Modo: production (next build + next start)
 
@@ -58,7 +58,7 @@ Sin enlaces rotos.
 | / | Aviso de privacidad | /privacidad | internalPage | OK |  |
 | / | 998 222 5373 | tel:+529982225373 | tel | OK |  |
 | / | Aviso de privacidad | /privacidad | internalPage | OK |  |
-| / | Escríbenos por WhatsApp | https://wa.me/529982225373?text=Hola%2C%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20y%20una%20cotizaci%C3%B3n%20sobre%20los%20servicios%20de%20GALAGOM. | whatsapp | OK |  |
+| / | 1 | https://wa.me/529982225373?text=Hola%2C%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20y%20una%20cotizaci%C3%B3n%20sobre%20los%20servicios%20de%20GALAGOM. | whatsapp | OK |  |
 | /privacidad | Saltar al contenido | #main-content | samePageFragment | OK |  |
 | /privacidad | GALAGOM, ir al inicio | / | internalPage | OK |  |
 | /privacidad | Inicio | / | internalPage | OK |  |
@@ -69,7 +69,7 @@ Sin enlaces rotos.
 | /privacidad | Cotizar flete | /#cotizar | samePageFragment | OK |  |
 | /privacidad | 998 222 5373 | tel:+529982225373 | tel | OK |  |
 | /privacidad | Aviso de privacidad | /privacidad | internalPage | OK |  |
-| /privacidad | Escríbenos por WhatsApp | https://wa.me/529982225373?text=Hola%2C%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20y%20una%20cotizaci%C3%B3n%20sobre%20los%20servicios%20de%20GALAGOM. | whatsapp | OK |  |
+| /privacidad | 1 | https://wa.me/529982225373?text=Hola%2C%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20y%20una%20cotizaci%C3%B3n%20sobre%20los%20servicios%20de%20GALAGOM. | whatsapp | OK |  |
 | /404 | Saltar al contenido | #main-content | samePageFragment | OK |  |
 | /404 | GALAGOM, ir al inicio | / | internalPage | OK |  |
 | /404 | Inicio | / | internalPage | OK |  |
@@ -82,4 +82,4 @@ Sin enlaces rotos.
 | /404 | Solicitar cotización | /#cotizar | samePageFragment | OK |  |
 | /404 | 998 222 5373 | tel:+529982225373 | tel | OK |  |
 | /404 | Aviso de privacidad | /privacidad | internalPage | OK |  |
-| /404 | Escríbenos por WhatsApp | https://wa.me/529982225373?text=Hola%2C%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20y%20una%20cotizaci%C3%B3n%20sobre%20los%20servicios%20de%20GALAGOM. | whatsapp | OK |  |
+| /404 | 1 | https://wa.me/529982225373?text=Hola%2C%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20y%20una%20cotizaci%C3%B3n%20sobre%20los%20servicios%20de%20GALAGOM. | whatsapp | OK |  |

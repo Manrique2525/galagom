@@ -47,6 +47,16 @@ for (const [width, height] of viewports) {
 
   const coverageText = await page.evaluate(() => document.querySelector("#cobertura")?.textContent ?? "");
   if (!coverageText.includes("Conectamos México de punta a punta.")) issues.push(`${width}px: coverage heading missing`);
+  if (!coverageText.includes("Desde Tijuana hasta Quintana Roo")) issues.push(`${width}px: coverage from–to copy missing`);
+  if (!coverageText.includes("Cobertura nacional")) issues.push(`${width}px: coverage national label missing`);
+  const labelCopy = await page.evaluate(() => {
+    const section = document.querySelector("#cobertura");
+    const label = section?.querySelector("div[class*=mt-3]");
+    return { body: document.body.textContent ?? "", label: label?.textContent ?? "" };
+  });
+  if (labelCopy.body.includes("Tijuana → Quintana Roo · Cobertura nacional")) issues.push(`${width}px: old arrow label still present`);
+  if (labelCopy.label.includes("→")) issues.push(`${width}px: coverage label still uses arrow`);
+  if (!labelCopy.label.includes("Desde Tijuana hasta Quintana Roo") || !labelCopy.label.includes("Cobertura nacional")) issues.push(`${width}px: coverage label copy incomplete`);
   if (coverageText.includes("Holbox") || coverageText.includes("Isla Mujeres") || coverageText.includes("Cozumel")) issues.push(`${width}px: coverage repeats island destinations`);
 
   const servicesText = await page.evaluate(() => document.querySelector("#servicios")?.textContent ?? "");
@@ -73,11 +83,9 @@ for (const [width, height] of viewports) {
   const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
   await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
   await page.locator('[data-map-status="ready"]').waitFor({ timeout: 12000 });
-  await page.locator("#hero-section").screenshot({ path: "docs/screenshots/national-coverage-hero-1440.png" });
-  await page.locator("#servicios").screenshot({ path: "docs/screenshots/national-coverage-services-1440.png" });
-  await page.locator("#cobertura").screenshot({ path: "docs/screenshots/national-coverage-1440.png" });
-  await page.locator('[data-map-status="ready"]').screenshot({ path: "docs/screenshots/national-coverage-map-1440.png" });
-  await page.screenshot({ path: "docs/screenshots/national-coverage-full-home.png", fullPage: true });
+  await page.evaluate(() => document.querySelector("#cobertura").scrollIntoView({ block: "center" }));
+  await page.waitForTimeout(500);
+  await page.locator("#cobertura").screenshot({ path: "docs/screenshots/coverage-from-tijuana-1440.png" });
   await page.close();
 }
 
@@ -85,7 +93,9 @@ for (const [width, height] of viewports) {
   const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
   await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
   await page.locator('[data-map-status="ready"]').waitFor({ timeout: 12000 });
-  await page.locator("#cobertura").screenshot({ path: "docs/screenshots/national-coverage-390.png" });
+  await page.evaluate(() => document.querySelector("#cobertura").scrollIntoView({ block: "center" }));
+  await page.waitForTimeout(500);
+  await page.locator("#cobertura").screenshot({ path: "docs/screenshots/coverage-from-tijuana-390.png" });
   await page.close();
 }
 

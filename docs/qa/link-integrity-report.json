@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-12T18:17:45.258Z",
+  "generatedAt": "2026-09-12T18:43:50.040Z",
   "baseUrl": "http://localhost:3001",
   "mode": "production (next build + next start)",
   "totalLinks": 45,
@@ -107,7 +107,7 @@
       },
       {
         "href": "https://wa.me/529982225373?text=Hola%2C%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20y%20una%20cotizaci%C3%B3n%20sobre%20los%20servicios%20de%20GALAGOM.",
-        "text": "Escríbenos por WhatsApp",
+        "text": "1",
         "type": "whatsapp"
       }
     ],
@@ -164,7 +164,7 @@
       },
       {
         "href": "https://wa.me/529982225373?text=Hola%2C%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20y%20una%20cotizaci%C3%B3n%20sobre%20los%20servicios%20de%20GALAGOM.",
-        "text": "Escríbenos por WhatsApp",
+        "text": "1",
         "type": "whatsapp"
       }
     ],
@@ -231,7 +231,7 @@
       },
       {
         "href": "https://wa.me/529982225373?text=Hola%2C%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20y%20una%20cotizaci%C3%B3n%20sobre%20los%20servicios%20de%20GALAGOM.",
-        "text": "Escríbenos por WhatsApp",
+        "text": "1",
         "type": "whatsapp"
       }
     ]

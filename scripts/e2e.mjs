@@ -14,7 +14,7 @@ await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
 const homeText = await page.evaluate(() => document.body.textContent ?? "");
 for (const term of ["Cobertura nacional", "Tijuana", "Quintana Roo"]) if (!homeText.includes(term)) throw new Error(`Homepage does not mention "${term}".`);
 const coverageText = await page.evaluate(() => document.querySelector("#cobertura")?.textContent ?? "");
-if (!coverageText.includes("Conectamos México de punta a punta.") || !coverageText.includes("Tijuana → Quintana Roo")) throw new Error("Coverage section lost the national concept.");
+if (!coverageText.includes("Conectamos México de punta a punta.") || !coverageText.includes("Desde Tijuana hasta Quintana Roo") || !coverageText.includes("Cobertura nacional")) throw new Error("Coverage section lost the national concept.");
 if (coverageText.includes("Holbox")) throw new Error("Coverage still repeats island destinations that belong to Services.");
 await page.getByRole("button", { name: /Solicitar cotización/ }).click();
 if (await page.locator("p[role=alert]").count() < 7) throw new Error("Invalid form did not expose all required field errors.");
@@ -46,7 +46,7 @@ const ctaColors = await mobileCta.evaluate((el) => { const s = getComputedStyle(
 if (ctaColors.color === ctaColors.bg || ctaColors.color !== "rgb(255, 255, 255)") throw new Error(`Mobile CTA invisible: color=${ctaColors.color} bg=${ctaColors.bg}`);
 const drawerRect = await mobileDialog.evaluate((el) => { const r = el.getBoundingClientRect(); return { h: r.height, vh: window.innerHeight }; });
 if (drawerRect.h < drawerRect.vh - 2 || !(await page.locator(".mobile-drawer").evaluate((el) => el.parentElement === document.body))) throw new Error(`Mobile drawer does not cover the viewport: ${JSON.stringify(drawerRect)}`);
-const drawerAboveWhatsapp = await page.evaluate(() => Number(getComputedStyle(document.querySelector(".mobile-drawer")).zIndex) > Number(getComputedStyle(document.querySelector(".whatsapp-float")).zIndex));
+const drawerAboveWhatsapp = await page.evaluate(() => Number(getComputedStyle(document.querySelector(".mobile-drawer")).zIndex) > Number(getComputedStyle(document.querySelector("[data-whatsapp-group]") ?? document.querySelector(".whatsapp-float")).zIndex));
 if (!drawerAboveWhatsapp) throw new Error("Mobile drawer is not layered above the WhatsApp floating button.");
 if (await page.evaluate(() => document.body.style.overflow) !== "hidden") throw new Error("Body scroll is not locked while mobile menu is open.");
 await page.keyboard.press("Escape");
