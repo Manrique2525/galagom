@@ -2,7 +2,7 @@
 
 ## Estado actual
 
-La ruta `/cotizar` contiene el formulario, la validación cliente y una interfaz de servicio desacoplada. No existe endpoint GALAGOM confirmado, por lo que `quoteSubmissionService` lanza explícitamente `QuoteSubmissionUnavailableError`. La UI no muestra un éxito falso ni envía datos a un tercero.
+La ruta `/cotizar` contiene el formulario y la validación cliente. El navegador envía JSON a `POST /api/quote`; el servidor vuelve a validar, aplica anti-spam y entrega el mensaje al adapter de Resend cuando la configuración existe.
 
 La validación en cliente mejora la experiencia, pero el futuro servidor deberá validar nuevamente todo el payload antes de procesarlo.
 
@@ -18,12 +18,13 @@ El schema `src/lib/quote-schema.ts` define el contrato único:
 - `destination`: destino escrito libremente.
 - `date`: fecha estimada opcional.
 - `description`: descripción de la carga o necesidad.
+- `website`: honeypot vacío para usuarios; no forma parte del email.
 
 El tipo `QuoteFormData` se deriva directamente con `z.infer<typeof quoteSchema>`.
 
-## Integración futura
+## Integración actual y futura
 
-El proveedor real debe implementar `QuoteSubmissionService` y recibir el payload mediante una ruta de servidor o servicio aprobado. Esa integración deberá definir endpoint, respuesta, timeout, errores de red, confirmación real antes del éxito, protección de datos y retención.
+`src/app/api/quote/route.ts` es el límite server-side. `resend-email-provider.ts` implementa `EmailProvider`, por lo que Resend puede sustituirse sin cambiar el formulario o schema. El formulario muestra éxito únicamente cuando el Route Handler recibe una aceptación real del provider.
 
 No usar Resend, SendGrid, Nodemailer, Formspree, EmailJS o un CRM sin una decisión explícita del proyecto.
 
@@ -36,8 +37,8 @@ Antes de producción evaluar honeypot, rate limiting y una solución de baja fri
 - `idle`: formulario listo.
 - `submitting`: intento de integración en curso.
 - `error`: canal de recepción no configurado o fallo real.
-- No existe `success` hasta que una integración real confirme la recepción.
+- `success`: solo después de una respuesta exitosa del endpoint y provider.
 
 ## Tests
 
-No se añadió un runner nuevo únicamente para cinco casos de schema. La validación se mantiene centralizada en Zod, y el contrato queda preparado para ser probado cuando exista la infraestructura de tests del proyecto o se incorpore el endpoint server-side.
+Vitest cubre schema, Route Handler, JSON inválido, 422, 503, honeypot, campos inesperados y payload con contenido `<script>` tratado como texto plano. No se realizan llamadas reales a Resend.

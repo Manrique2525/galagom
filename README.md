@@ -41,6 +41,7 @@ Abrir `http://localhost:3000`.
 ```bash
 npm run lint
 npm run typecheck
+npm test
 npm run build
 npm run qa:visual
 ```

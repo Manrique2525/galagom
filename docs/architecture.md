@@ -62,7 +62,9 @@ src/
   data/three-pl.ts
   lib/metadata.ts
   lib/quote-schema.ts
-  lib/quote-service.ts
+  lib/quote/
+    email-provider.ts
+    resend-email-provider.ts
   lib/structured-data.ts
   styles/tokens.css
   types/site.ts
@@ -87,7 +89,7 @@ components/
 - HTML semántico, landmarks y enlaces reales.
 - `Button` usa `Link` para destinos navegables y `<button>` para acciones nativas.
 - Los IDs de homepage son `servicios`, `proceso`, `cobertura`, `nosotros`, `unidades`, `3pl` y `contacto`.
-- No se publica structured data específico de la cotización; no hay backend ni confirmación de recepción.
+- No se publica structured data específico de la cotización.
 
 ## Metadata y assets
 
@@ -97,4 +99,4 @@ El logo se sirve desde un asset identificado de GALAGOM mediante `next/image` y 
 
 ## Siguientes fases
 
-El contenido permanece en Server Components siempre que es posible. Los visuales animados y el formulario son Client Components aislados. `site-structured-data.tsx` y `structured-data.ts` publican solo `Organization` y `WebSite` con datos confirmados. La capa `quote-service.ts` define el contrato de envío sin fingir una integración. El servidor futuro deberá repetir la validación y añadir protección anti-spam; actualmente no se envía email, no hay CRM y no se muestra éxito.
+El contenido permanece en Server Components siempre que es posible. El formulario es Client Component; `/api/quote`, schema, adapters de email y metadata permanecen server-side. `site-structured-data.tsx` y `structured-data.ts` publican solo `Organization` y `WebSite` con datos confirmados. El servidor valida con el mismo schema, aplica honeypot y Origin, genera request ID y delega en Resend sin exponer secrets. Rate limiting distribuido, anti-spam avanzado y persistencia siguen pendientes.
