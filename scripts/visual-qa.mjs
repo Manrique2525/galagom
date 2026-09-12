@@ -38,6 +38,14 @@ for (const path of pages) {
     window.scrollTo(0, 0);
       await new Promise((resolve) => setTimeout(resolve, 300));
     });
+    if (path === "/" && (width === 390 || width === 1440)) {
+      const coverage = page.locator("#cobertura");
+      await coverage.scrollIntoViewIfNeeded();
+      await page.waitForTimeout(250);
+      await page.screenshot({ path: `docs/screenshots/map-home-${width}.png` });
+      await coverage.screenshot({ path: `docs/screenshots/map-section-${width === 390 ? "mobile" : "desktop"}.png` });
+      await page.evaluate(() => window.scrollTo(0, 0));
+    }
     if (path === "/" && width === 1440) {
       await page.evaluate(() => window.scrollTo(0, 900));
       await page.waitForTimeout(300);
