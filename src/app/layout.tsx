@@ -3,6 +3,7 @@ import { Manrope } from "next/font/google";
 import SiteFooter from "@/components/layout/site-footer";
 import SiteHeader from "@/components/layout/site-header";
 import SkipLink from "@/components/layout/skip-link";
+import WhatsAppFloatingButton from "@/components/ui/whatsapp-floating-button";
 import { siteConfig } from "@/data/site";
 import "./globals.css";
 
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   applicationName: siteConfig.shortName,
   alternates: { canonical: "/" },
+  robots: { index: true, follow: true },
   openGraph: { type: "website", locale: "es_MX", url: "/", siteName: siteConfig.shortName, title: siteConfig.name, description: siteConfig.description },
   twitter: { card: "summary_large_image", title: siteConfig.name, description: siteConfig.description },
 };
@@ -25,6 +27,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <SiteHeader />
       <main id="main-content">{children}</main>
       <SiteFooter />
+      <WhatsAppFloatingButton />
     </body>
   </html>;
 }

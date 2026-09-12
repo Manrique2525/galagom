@@ -4,7 +4,7 @@ Base frontend para el rediseño de **GALAGOM - Soluciones Logísticas**, empresa
 
 ## Estado
 
-Foundation completada. La página actual es una pantalla temporal para validar el sistema visual, la navegación, la accesibilidad y el comportamiento responsive. La homepage comercial se implementará en fases posteriores.
+Release Candidate 1. La homepage funciona como landing premium de logística con formulario completo en `#cotizar`; `/cotizar` redirige a ese anchor. Resend permanece configurable y sin credenciales en el repositorio.
 
 ## Stack
 
@@ -14,8 +14,11 @@ Foundation completada. La página actual es una pantalla temporal para validar e
 - Tailwind CSS 4
 - ESLint 9 con `eslint-config-next`
 - Manrope mediante `next/font`
+- Leaflet 1.9.4 con tiles de OpenStreetMap
+- Resend adapter server-side
+- Vitest y Playwright para QA
 
-No se han añadido todavía formularios, mapas, animaciones de scroll ni dependencias de estado.
+No se utilizan gestores de estado, Google Maps, mapas SVG ni APIs de geocoding/directions.
 
 ## Requisitos
 
@@ -41,8 +44,13 @@ Abrir `http://localhost:3000`.
 ```bash
 npm run lint
 npm run typecheck
+npm test
+npm run test:e2e
 npm run build
+npm run qa:visual
 ```
+
+`qa:visual` requiere un servidor local activo, por ejemplo `npm run dev`, y genera las capturas de revisión en `docs/screenshots/`.
 
 ## Estructura
 

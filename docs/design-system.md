@@ -40,7 +40,7 @@ Manrope es la única familia actual. Se carga mediante `next/font/google` y se e
 - `Container`: ancho y padding horizontal compartidos.
 - `Button`: variantes `primary`, `secondary`, `ghost`; tamaños `default` y `large`.
 - `SectionHeading`: eyebrow opcional, heading, descripción y alineación.
-- Header, navegación móvil, footer y skip link forman la base de layout.
+- Header, navegación móvil, footer, skip link y formulario forman la base de layout.
 
 ## Radius y sombras
 
@@ -51,4 +51,53 @@ Manrope es la única familia actual. Se carga mediante `next/font/google` y se e
 
 ## Motion principles
 
-Foundation usa solo transiciones CSS de color, border y focus. No hay reveals, parallax, rutas ni scroll animations. Se respetará `prefers-reduced-motion` en todo el proyecto; la animación de fases posteriores será progresiva y no necesaria para comprender el contenido.
+Homepage Core usa Motion únicamente para reveals de secciones y cards cuando entran al viewport. Las transiciones CSS cubren color, border, elevación y desplazamientos mínimos. No hay parallax, rutas animadas ni animaciones infinitas. `useReducedMotion` elimina el desplazamiento y deja el contenido visible directamente; la animación nunca es necesaria para comprender el contenido.
+
+Los fondos del hero, cobertura y CTA usan exclusivamente la gama azul corporativa, con grid técnico y rutas SVG como lenguaje visual de movimiento. El mapa y las ilustraciones de unidades usan el mismo stroke fino, nodos circulares y proporciones contenidas.
+
+## Patrones de Logistics Experience
+
+- El proceso usa una línea de progreso única: horizontal en desktop y vertical en móvil.
+- Cobertura usa Leaflet con tiles de OpenStreetMap, pines rojos y Cancún como origen principal hacia Holbox, Isla Mujeres y Cozumel. La attribution de OpenStreetMap permanece visible.
+- La capacidad de unidades se integra editorialmente en About; la ilustración lineal genérica no representa un modelo específico de vehículo.
+- 3PL usa una red horizontal de servicios conectados en desktop y un eje vertical en móvil, diferenciándose del timeline de proceso. Una imagen de almacén oscurecida funciona como contexto secundario.
+
+## Motion
+
+- `process-timeline`, `coverage-map` y `three-pl-network` dibujan líneas una sola vez al entrar en viewport.
+- Las duraciones de rutas y conexiones se mantienen entre 900 y 1000 ms; los reveals de copy usan 550 ms.
+- `useReducedMotion` muestra líneas, nodos y contenido completos desde el inicio.
+- No hay loops, partículas, parallax, canvas ni WebGL.
+
+## Form controls
+
+- Inputs, select nativo y textarea usan surface claro, border corporativo, radius pequeño y focus ring azul.
+- Los labels son siempre visibles; el placeholder solo aporta contexto.
+- Los errores usan texto claro, color de error contenido y `aria-describedby`.
+- La composición del formulario es de una columna en móvil y usa dos columnas selectivamente desde `sm`.
+- Los controles mantienen altura táctil cómoda y no dependen de hover.
+
+## Temporary photography
+
+Las fotografías actuales de Pexels son un recurso temporal y siempre se presentan como contexto de transporte/logística, nunca como flota, personal o instalaciones de GALAGOM. Se usa overlay azul corporativo y `object-cover` para integrarlas con los diagramas. El Hero es la única imagen con `priority`; las imágenes de cards y Nosotros son lazy por defecto. Fuentes y sustitución: `docs/temporary-assets.md`.
+
+## Premium V3 tokens
+
+- `--section-space-desktop`: espacio vertical compartido para secciones editoriales amplias.
+- `--section-space-mobile`: ritmo vertical compacto para móvil.
+- `--content-max`: límite de composiciones principales.
+- `--editorial-max`: límite de copy largo.
+- `--card-radius` y `--image-radius`: radios diferenciados para superficies y fotografía.
+- `--line-color` y `--node-size`: lenguaje de rutas y nodos.
+- `--motion-fast`, `--motion-medium` y `--motion-ambient`: interacción, reveals y ambiente.
+
+## Motion system final
+
+- Ambient: 8–12 s, sutil y no esencial.
+- Scroll reveals: 350–550 ms, one-shot y siempre con contenido visible desde SSR.
+- Interaction: 180–260 ms para hover/focus.
+- No se usan partículas, loops rápidos, parallax, canvas o WebGL.
+
+## Service media cards
+
+Las cinco cards de servicios usan fotografía local temporal. Fletes y 3PL usan fondo inmersivo con degradado localizado; Recolección y Almacenaje usan imagen superior amplia; Carga nacional y local usa una composición lateral en desktop y apilada en móvil. La imagen escala como máximo `1.025` en hover y nunca es la única fuente del copy.

@@ -1,26 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/ui/container";
+import RouteDecor from "@/components/ui/route-decor";
 import { siteConfig } from "@/data/site";
 
 export default function SiteFooter() {
-  return <footer className="bg-primary-dark py-12 text-white" id="contacto">
-    <Container>
-      <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr]">
-        <div>
-          <Image src="https://www.galagom.com/wp-content/uploads/2024/11/logo-galagom-white.png" alt="GALAGOM Soluciones Logísticas" width={112} height={82} className="h-16 w-auto object-contain object-left" />
-          <p className="mt-5 max-w-sm text-sm leading-6 text-white/70">Soluciones de transporte y logística en Cancún y Quintana Roo.</p>
-        </div>
-        <div>
-          <h2 className="text-sm font-bold uppercase tracking-[0.15em] text-white/60">Contacto</h2>
-          <address className="mt-4 not-italic text-sm leading-7 text-white/80"><Link className="hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" href={siteConfig.phoneHref}>{siteConfig.phone}</Link><br />{siteConfig.location}</address>
-        </div>
-        <div>
-          <h2 className="text-sm font-bold uppercase tracking-[0.15em] text-white/60">Sitio</h2>
-          <Link className="mt-4 inline-block text-sm text-white/80 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" href="/privacidad">Aviso de privacidad</Link>
-        </div>
-      </div>
-      <div className="mt-12 border-t border-white/15 pt-5 text-xs text-white/50">Derechos Reservados © {new Date().getFullYear()} | GALAGOM Soluciones Logísticas</div>
-    </Container>
-  </footer>;
+  return <footer className="border-t border-border bg-white py-10 text-text"><Container><div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr]"><div><Image src="https://www.galagom.com/wp-content/uploads/2024/11/logo-galagom-350.png" alt="GALAGOM Soluciones Logísticas" width={130} height={96} className="h-14 w-auto object-contain object-left" /><p className="mt-4 max-w-sm text-sm leading-6 text-text-muted">Soluciones de transporte y logística en Cancún y Quintana Roo.</p></div><div><h2 className="text-xs font-bold uppercase tracking-[0.16em] text-secondary">Contacto</h2><address className="mt-4 not-italic text-sm leading-7 text-text-muted"><Link className="font-semibold text-primary hover:text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary" href={siteConfig.phoneHref}>{siteConfig.phone}</Link><br />{siteConfig.location}</address></div><div><h2 className="text-xs font-bold uppercase tracking-[0.16em] text-secondary">Sitio</h2><Link className="mt-4 inline-block text-sm font-semibold text-primary underline decoration-primary/30 underline-offset-4 hover:text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary" href="/privacidad">Aviso de privacidad</Link></div></div><div className="mt-8 flex flex-col gap-4 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between"><RouteDecor className="text-primary-soft" /><p className="text-xs text-text-muted">Derechos Reservados © {new Date().getFullYear()} | GALAGOM Soluciones Logísticas</p></div></Container></footer>;
 }

@@ -16,4 +16,9 @@ export const siteConfig: SiteConfig = {
     { label: "Nosotros", href: "/#nosotros" },
     { label: "Contacto", href: "/#contacto" },
   ],
+  whatsapp: {
+    phone: "529982225373",
+    displayPhone: "+52 998 222 5373",
+    message: "Hola, me gustaría solicitar información y una cotización sobre los servicios de GALAGOM.",
+  },
 };

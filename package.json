@@ -7,21 +7,36 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:e2e": "node scripts/e2e.mjs",
+    "qa:visual": "node scripts/visual-qa.mjs",
+    "qa:typewriter": "node scripts/typewriter-qa.mjs",
+    "qa:mobile-menu": "node scripts/mobile-menu-qa.mjs",
+    "qa:whatsapp": "node scripts/whatsapp-qa.mjs"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.9.1",
+    "leaflet": "^1.9.4",
+    "motion": "^13.2.0",
     "next": "16.3.5",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "react-hook-form": "^7.88.0",
+    "resend": "^6.28.0",
+    "zod": "^4.6.2"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/leaflet": "^1.9.22",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.3.5",
+    "playwright": "^1.63.0",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^4.1.11"
   }
 }

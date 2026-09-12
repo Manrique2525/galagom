@@ -1,5 +1,11 @@
 export type NavItem = { label: string; href: string };
 
+export type WhatsAppConfig = {
+  phone: string;
+  displayPhone: string;
+  message: string;
+};
+
 export type SiteConfig = {
   name: string;
   shortName: string;
@@ -10,4 +16,5 @@ export type SiteConfig = {
   location: string;
   email?: string;
   navigation: NavItem[];
+  whatsapp: WhatsAppConfig;
 };
