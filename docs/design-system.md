@@ -97,3 +97,7 @@ Las fotografías actuales de Pexels son un recurso temporal y siempre se present
 - Scroll reveals: 350–550 ms, one-shot y siempre con contenido visible desde SSR.
 - Interaction: 180–260 ms para hover/focus.
 - No se usan partículas, loops rápidos, parallax, canvas o WebGL.
+
+## Service media cards
+
+Las cinco cards de servicios usan fotografía local temporal. Fletes y 3PL usan fondo inmersivo con degradado localizado; Recolección y Almacenaje usan imagen superior amplia; Carga nacional y local usa una composición lateral en desktop y apilada en móvil. La imagen escala como máximo `1.025` en hover y nunca es la única fuente del copy.

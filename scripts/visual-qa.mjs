@@ -33,7 +33,9 @@ for (const path of pages) {
     if (consoleErrors.length) issues.push(`${path} console errors at ${width}px: ${consoleErrors.join(" | ")}`);
     if (path === "/" && width === 390) await page.locator('[data-map-status="ready"]').waitFor({ timeout: 10000 });
     if (path === "/" && (width === 390 || width === 1440)) {
-      const requiredSections = [["hero-section", width === 390 ? "v3-hero-mobile" : "v3-hero-desktop"], ["servicios", width === 390 ? "v3-services-mobile" : "v3-services-desktop"]];
+      const serviceFile = width === 390 ? "v3-services-mobile" : "v3-services-desktop";
+      const serviceFileV31 = width === 390 ? "services-v31-mobile" : "services-v31-desktop";
+      const requiredSections = [["hero-section", width === 390 ? "v3-hero-mobile" : "v3-hero-desktop"], ["servicios", serviceFile], ["servicios", serviceFileV31]];
       for (const [id, file] of requiredSections) {
         const section = page.locator(`#${id}`);
         await section.screenshot({ path: `docs/screenshots/${file}.png` });
@@ -44,6 +46,17 @@ for (const path of pages) {
         const section = id === "3pl" ? page.locator('[id="3pl"]') : page.locator(`#${id}`);
         await section.screenshot({ path: `docs/screenshots/${file}.png` });
       }
+      const serviceCards = page.locator("#servicios article");
+      if (await serviceCards.count() !== 5) issues.push("Services does not expose five cards");
+      if (await serviceCards.locator("img").count() !== 5) issues.push("Services cards do not all expose an image");
+      const cardBoxes = await serviceCards.evaluateAll((cards) => cards.map((card) => { const { width, height } = card.getBoundingClientRect(); return { width, height }; }));
+      for (const title of ["Fletes Isla Mujeres y Cozumel", "Carga nacional y local", "Soluciones 3PL"]) {
+        const card = serviceCards.filter({ hasText: title });
+        await card.hover();
+      }
+      const afterCardBoxes = await serviceCards.evaluateAll((cards) => cards.map((card) => { const { width, height } = card.getBoundingClientRect(); return { width, height }; }));
+      if (JSON.stringify(cardBoxes) !== JSON.stringify(afterCardBoxes)) issues.push("Service hover changed card layout bounds");
+      await page.screenshot({ path: "docs/screenshots/services-v31-hover.png" });
     }
     if (path === "/" && width === 390) {
       try { await page.locator('[data-map-status="ready"]').waitFor({ state: "attached", timeout: 10000 }); } catch { issues.push("Leaflet map did not reach ready state"); }
@@ -86,6 +99,7 @@ for (const path of pages) {
     if (path === "/" && width === 1440) await page.screenshot({ path: "docs/screenshots/photo-home-1440.png", fullPage: true });
     if (path === "/" && width === 390) await page.screenshot({ path: "docs/screenshots/photo-home-390.png", fullPage: true });
     if (path === "/" && width === 390) await page.screenshot({ path: "docs/screenshots/home-premium-390.png", fullPage: true });
+    if (path === "/" && width === 1440) await page.screenshot({ path: "docs/screenshots/services-v31-full-home.png", fullPage: true });
     if (path === "/" && [390, 768, 1440, 1920].includes(width)) await page.screenshot({ path: `docs/screenshots/v2-home-${width}.png`, fullPage: true });
     if (path === "/" && [390, 1440].includes(width)) await page.screenshot({ path: `docs/screenshots/v3-home-${width}.png`, fullPage: true });
     if (path === "/" && width === 1440) await page.locator("footer").screenshot({ path: "docs/screenshots/v2-footer.png" });

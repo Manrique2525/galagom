@@ -8,6 +8,8 @@ Estas imágenes son material temporal de Pexels. No representan la flota, person
 | `public/images/temporary/freight-truck.webp` | Pexels | <https://www.pexels.com/photo/delivery-man-pulling-a-trolley-with-carton-boxes-6169178/> | Tima Miroshnichenko | 6169178 | Card de Fletes Isla Mujeres y Cozumel | Transporte o carga GALAGOM | 4:3 aprox. | TEMPORAL |
 | `public/images/temporary/warehouse.webp` | Pexels | <https://www.pexels.com/photo/221047/> | Pixabay | 221047 | Card de Almacenaje | Almacén o bodega GALAGOM | 4:3 aprox. | TEMPORAL |
 | `public/images/temporary/logistics-worker.webp` | Pexels | <https://www.pexels.com/photo/man-working-in-logistics-6169640/> | Tima Miroshnichenko | 6169640 | Visual editorial de Nosotros | Personal GALAGOM validado | 4:3 aprox. | TEMPORAL |
+| `public/images/temporary/services/national-cargo.webp` | Pexels | <https://www.pexels.com/photo/trucks-by-warehouse-18468444/> | Robert So | 18468444 | Card de Carga nacional y local | Camión u operación de carga GALAGOM | 16:10 aprox. | TEMPORAL |
+| `public/images/temporary/services/fulfillment-warehouse.webp` | Pexels | <https://www.pexels.com/photo/workers-in-warehouse-4483862/> | Tiger Lily | 4483862 | Card de Soluciones 3PL | Operación 3PL o almacén GALAGOM | 16:10 aprox. | TEMPORAL |
 
 Las páginas de Pexels consultadas indican que las imágenes son de uso libre bajo la licencia de Pexels (la foto 221047 aparece además como CC0). Las imágenes están guardadas localmente como WebP y se sirven con `next/image`; no se hace hotlinking.
 
