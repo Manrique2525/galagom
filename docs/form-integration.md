@@ -2,7 +2,7 @@
 
 ## Estado actual
 
-La ruta `/cotizar` contiene el formulario y la validación cliente. El navegador envía JSON a `POST /api/quote`; el servidor vuelve a validar, aplica anti-spam y entrega el mensaje al adapter de Resend cuando la configuración existe.
+La sección `/#cotizar` de la homepage contiene el formulario y la validación cliente. `/cotizar` redirige a ese anchor. El navegador envía JSON a `POST /api/quote`; el servidor vuelve a validar, aplica anti-spam y entrega el mensaje al adapter de Resend cuando la configuración existe.
 
 La validación en cliente mejora la experiencia, pero el futuro servidor deberá validar nuevamente todo el payload antes de procesarlo.
 

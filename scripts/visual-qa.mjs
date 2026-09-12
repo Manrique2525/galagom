@@ -12,7 +12,6 @@ const viewports = [
 ];
 const pages = ["/", "/cotizar"];
 const issues = [];
-const mapsConfigured = Boolean(process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY);
 
 for (const path of pages) {
   for (const [width, height] of viewports) {
@@ -23,30 +22,36 @@ for (const path of pages) {
     });
     const response = await page.goto(`${baseUrl}${path}`, { waitUntil: "networkidle" });
     if (response?.status() !== 200) issues.push(`${path} returned ${response?.status()}`);
+    if (path === "/cotizar" && !page.url().endsWith("/#cotizar")) issues.push(`/cotizar redirect ended at ${page.url()}`);
     const hasOverflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);
     if (hasOverflow) issues.push(`${path} overflows horizontally at ${width}px`);
     const h1Count = await page.locator("h1").count();
     if (h1Count !== 1) issues.push(`${path} has ${h1Count} H1 elements`);
     if (consoleErrors.length) issues.push(`${path} console errors at ${width}px: ${consoleErrors.join(" | ")}`);
-    if (path === "/" && width === 390) {
-      const mapState = page.locator("[data-map-status]");
-      if (mapsConfigured) {
-        try { await page.locator('[data-map-status="ready"]').waitFor({ state: "attached", timeout: 10000 }); } catch { issues.push("Google Maps did not reach ready state"); }
-      } else if (await mapState.getAttribute("data-map-status") !== "unconfigured") {
-        issues.push("Google Maps fallback state is not explicit without an API key");
+    if (path === "/" && width === 390) await page.locator('[data-map-status="ready"]').waitFor({ timeout: 10000 });
+    if (path === "/" && width === 1440) {
+      await page.screenshot({ path: "docs/screenshots/home-premium-1440.png" });
+      for (const [id, file] of [["hero-section", "hero-premium"], ["servicios", "services-premium"], ["proceso", "process-premium"], ["cobertura", "leaflet-map-premium"], ["3pl", "3pl-premium"], ["cotizar", "quote-premium"]]) {
+        const section = id === "3pl" ? page.locator('[id="3pl"]') : page.locator(`#${id}`);
+        await section.screenshot({ path: `docs/screenshots/${file}.png` });
       }
+    }
+    if (path === "/" && width === 390) {
+      try { await page.locator('[data-map-status="ready"]').waitFor({ state: "attached", timeout: 10000 }); } catch { issues.push("Leaflet map did not reach ready state"); }
+      if (await page.locator(".leaflet-marker-icon").count() !== 4) issues.push("Leaflet map does not expose four markers");
     }
     if (path === "/" && width === 1440) await page.screenshot({ path: "docs/screenshots/header-home-overlay.png" });
     if (path === "/cotizar" && width === 1440) await page.screenshot({ path: "docs/screenshots/header-quote-solid.png" });
     if (path === "/" && width === 1440) await page.screenshot({ path: "docs/screenshots/navbar-final-home-top.png" });
     if (path === "/cotizar" && width === 1440) await page.screenshot({ path: "docs/screenshots/navbar-final-quote.png" });
-    if (path === "/" && width === 390 && !mapsConfigured) await page.locator("[data-map-status]").screenshot({ path: "docs/screenshots/google-map-no-key.png" });
     if (path === "/" && width === 1440) await page.screenshot({ path: "docs/screenshots/hotfix-home-top-1440.png" });
     if (path === "/" && width === 390) await page.screenshot({ path: "docs/screenshots/hotfix-home-390.png" });
     await page.evaluate(async () => {
-      for (let y = 0; y < document.body.scrollHeight; y += window.innerHeight) {
+      let steps = 0;
+      for (let y = 0; y < document.body.scrollHeight && steps < 24; y += window.innerHeight) {
         window.scrollTo(0, y);
-        await new Promise((resolve) => setTimeout(resolve, 700));
+        steps += 1;
+        await new Promise((resolve) => setTimeout(resolve, 220));
       }
     window.scrollTo(0, 0);
       await new Promise((resolve) => setTimeout(resolve, 300));
@@ -71,10 +76,9 @@ for (const path of pages) {
     if (path === "/cotizar" && width === 1440) await page.screenshot({ path: "docs/screenshots/hotfix-quote-1440.png", fullPage: true });
     if (path === "/" && width === 1440) await page.screenshot({ path: "docs/screenshots/photo-home-1440.png", fullPage: true });
     if (path === "/" && width === 390) await page.screenshot({ path: "docs/screenshots/photo-home-390.png", fullPage: true });
+    if (path === "/" && width === 390) await page.screenshot({ path: "docs/screenshots/home-premium-390.png", fullPage: true });
     if (path === "/cotizar" && width === 1440) await page.screenshot({ path: "docs/screenshots/photo-quote-1440.png", fullPage: true });
     if (path === "/cotizar" && width === 390) await page.screenshot({ path: "docs/screenshots/photo-quote-390.png", fullPage: true });
-    if (path === "/" && mapsConfigured && width === 1440) await page.locator("[data-map-status]").screenshot({ path: "docs/screenshots/google-map-desktop.png" });
-    if (path === "/" && mapsConfigured && width === 390) await page.locator("[data-map-status]").screenshot({ path: "docs/screenshots/google-map-mobile.png" });
     if (path === "/" && width === 390) {
       const menuButton = page.getByRole("button", { name: "Abrir menú" });
       await menuButton.click();

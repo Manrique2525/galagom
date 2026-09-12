@@ -18,19 +18,17 @@ Este proyecto requiere un entorno compatible con Next.js App Router y Node.js. N
 ## Variables necesarias al activar servicios
 
 ```text
-NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
-NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID
 RESEND_API_KEY
 QUOTE_RECIPIENT_EMAIL
 QUOTE_FROM_EMAIL
 ```
 
-No colocar valores en Git ni en imágenes/build logs. La API key de Google debe restringirse por HTTP referrers y Maps JavaScript API; Resend debe utilizar un dominio remitente verificado.
+No colocar valores en Git ni en imágenes/build logs. OpenStreetMap debe mantener su attribution visible y respetar la política de uso de tiles; Resend debe utilizar un dominio remitente verificado.
 
 ## Pre-deploy
 
-Seguir `docs/release-checklist.md`. El aviso `/privacidad` permanece `noindex` hasta aprobación. Registrar redirects/410 de WordPress en el hosting, enviar el sitemap a Search Console y probar el formulario con una cuenta de correo controlada antes de abrirlo al público.
+Seguir `docs/release-checklist.md`. El aviso `/privacidad` permanece `noindex` hasta aprobación. Registrar redirects/410 de WordPress en el hosting, verificar el redirect `/cotizar` hacia `/#cotizar`, enviar el sitemap a Search Console y probar el formulario con una cuenta de correo controlada antes de abrirlo al público.
 
 ## Rate limiting y CSP
 
-Rate limiting distribuido debe resolverse con la plataforma, WAF/edge o Redis/Upstash; no usar el Map en memoria de una instancia. Una CSP debe definirse después de confirmar los dominios de Google Maps, fuentes y assets, para no romper el runtime por cumplir un checklist prematuro.
+Rate limiting distribuido debe resolverse con la plataforma, WAF/edge o Redis/Upstash; no usar el Map en memoria de una instancia. Una CSP debe definirse después de confirmar los dominios de OpenStreetMap, fuentes y assets, para no romper el runtime por cumplir un checklist prematuro.

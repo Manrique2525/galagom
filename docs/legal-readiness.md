@@ -27,3 +27,7 @@
 ## Formularios
 
 El formulario solicita únicamente nombre, teléfono, correo, servicio, origen, destino, fecha opcional y descripción. No se añadió consentimiento de marketing ni se solicitan RFC, CURP, dirección personal u otros datos no necesarios para la cotización.
+
+## Third-party network requests
+
+Leaflet solicita inicialmente tiles de OpenStreetMap desde el navegador y mantiene su attribution visible; la política de consentimiento deberá revisarse junto con la implementación legal definitiva.

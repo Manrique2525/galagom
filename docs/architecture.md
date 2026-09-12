@@ -9,11 +9,11 @@
 - ESLint `9` con configuración de Next.
 - Manrope con `next/font`.
 
-Se añadió `motion` para los reveals ligeros de Homepage Core. `@googlemaps/js-api-loader` carga Google Maps solo dentro del componente de cobertura; Playwright está instalado únicamente como `devDependency` para QA visual y smoke checks. No se instalaron wrappers UI de mapas ni UI kits.
+Se añadió `motion` para los reveals ligeros de Homepage Core. `leaflet` carga el mapa únicamente dentro del componente de cobertura; Playwright está instalado únicamente como `devDependency` para QA visual y smoke checks. No se instalaron wrappers React de mapas ni UI kits.
 
 ## Rendering
 
-`src/app/layout.tsx`, `page.tsx`, contenido de hero, servicios, nosotros, CTA, footer, `site-header.tsx` y UI base son Server Components. `mobile-navigation.tsx` gestiona estado y `Escape`. `reveal.tsx`, `process-timeline.tsx`, `coverage-map.tsx`, `three-pl-network.tsx` y `quote-form.tsx` son Client Components aislados para Motion, Google Maps o interacción.
+`src/app/layout.tsx`, `page.tsx`, contenido de hero, servicios, nosotros, CTA, footer, `site-header.tsx` y UI base son Server Components. `mobile-navigation.tsx` gestiona estado y `Escape`. `reveal.tsx`, `process-timeline.tsx`, `coverage-map.tsx`, `three-pl-network.tsx` y `quote-form.tsx` son Client Components aislados para Motion, Leaflet o interacción.
 
 No se usa estado global. Los datos públicos se centralizan en `src/data/site.ts` y los tipos simples viven en `src/types/site.ts`.
 
@@ -48,6 +48,9 @@ src/
       trust-strip.tsx
       about-section.tsx
       final-cta.tsx
+      quote-cta.tsx
+    ui/
+      route-decor.tsx
     services/
       service-card.tsx
       services-grid.tsx
@@ -79,7 +82,7 @@ Los módulos de Homepage Core y Logistics Experience se organizan así:
 ```text
 components/
   process/       # historia origen -> destino
-  coverage/      # cobertura textual y Google Maps Platform
+  coverage/      # cobertura textual y Leaflet/OpenStreetMap
   units/         # capacidad adaptada sin especificaciones de flota
   three-pl/      # ecosistema de servicios 3PL conectados
   forms/         # formulario Client y estados de cotización
@@ -95,9 +98,9 @@ components/
 
 ## Metadata y assets
 
-La metadata global está en `layout.tsx`, con `metadataBase`, canonical raíz, robots, Open Graph y Twitter. Las páginas `/` y `/cotizar` definen sus títulos, descripciones y canonicales específicos. `src/lib/metadata.ts` deja preparado un helper para metadata específica por página. `sitemap.ts` y `robots.ts` exponen únicamente las dos URLs publicables.
+La metadata global está en `layout.tsx`, con `metadataBase`, canonical raíz, robots, Open Graph y Twitter. La homepage define su metadata comercial; `/cotizar` es un redirect a `/#cotizar` y `/privacidad` define su metadata `noindex, follow`. `src/lib/metadata.ts` deja preparado un helper para metadata específica por página. `sitemap.ts` expone únicamente la homepage indexable.
 
-El logo se sirve desde un asset identificado de GALAGOM mediante `next/image` y una regla explícita de `remotePatterns`. Las fotografías temporales se sirven localmente desde `public/images/temporary/` con `next/image`, y su procedencia está registrada en `docs/temporary-assets.md`. Google Maps usa un loader oficial, las variables públicas documentadas y no se inicializa si falta la API key.
+El logo se sirve desde un asset identificado de GALAGOM mediante `next/image` y una regla explícita de `remotePatterns`. Las fotografías temporales se sirven localmente desde `public/images/temporary/` con `next/image`, y su procedencia está registrada en `docs/temporary-assets.md`. Leaflet usa configuración de tiles centralizada en `src/data/map-config.ts` y mantiene la atribución de OpenStreetMap.
 
 ## Siguientes fases
 

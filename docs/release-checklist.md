@@ -6,9 +6,8 @@
 - [ ] Email ARCO confirmado.
 - [ ] Razón social confirmada.
 - [ ] Dirección confirmada si se publicará.
-- [ ] Google Maps API key.
-- [ ] Google Maps Map ID.
-- [ ] Restricciones de Google key.
+- [ ] Leaflet/OpenStreetMap tiles revisados.
+- [ ] Attribution de OpenStreetMap visible.
 - [ ] Resend API key.
 - [ ] Dominio verificado en Resend.
 - [ ] `QUOTE_RECIPIENT_EMAIL`.
@@ -31,7 +30,7 @@
 - [ ] `npm run build`.
 - [ ] `npm run qa:visual`.
 - [ ] `npm run test:e2e` sin credenciales reales.
-- [ ] HTTP smoke de `/`, `/cotizar`, `/privacidad`, `/robots.txt`, `/sitemap.xml` y 404.
+- [ ] HTTP smoke de `/`, `/cotizar` redirect, `/#cotizar`, `/privacidad`, `/robots.txt`, `/sitemap.xml` y 404.
 - [ ] Revisar headers y requests de terceros en producción.
 
 ## Performance audit

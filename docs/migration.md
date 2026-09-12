@@ -5,7 +5,7 @@
 | URL nueva | Estado | Acción |
 | --- | --- | --- |
 | `/` | Publicable | Canonical a `https://www.galagom.com/`. |
-| `/cotizar` | Publicable técnicamente | Canonical a `https://www.galagom.com/cotizar`. El canal de envío sigue pendiente. |
+| `/#cotizar` | Conversión homepage | El formulario completo vive dentro de la landing. |
 
 `/servicios` no se crea en esta fase: con el contenido disponible sería una copia del grid de homepage y no tendría valor independiente suficiente. Tampoco se crean páginas individuales de servicios o localidades.
 
@@ -13,7 +13,7 @@
 
 ## Rutas heredadas
 
-- `/cotizar/` tiene equivalente en `/cotizar`; configurar una redirección permanente o normalización de trailing slash en el hosting/deployment y verificarla con HTTP.
+- `/cotizar/` tiene equivalente en `/cotizar`, que ahora redirige a `/#cotizar`; verificar la redirección y su trailing slash en el hosting/deployment.
 - `/borrar/` es contenido de prueba; preferir `410 Gone`, no redirigirlo a homepage.
 - `/2024/10/30/hello-world/` es una entrada WordPress de prueba; preferir `410 Gone`, no redirigirla a homepage.
 - Categorías, autor, comentarios, feeds y `locations.kml` no tienen equivalente comercial; retirar o responder `410` según el comportamiento del hosting.
@@ -22,7 +22,7 @@ Next no recrea estas rutas y no se añadieron redirects engañosos dentro de la 
 
 ## Sitemap y Search Console
 
-1. Publicar `sitemap.xml` generado por `src/app/sitemap.ts` con solo `/` y `/cotizar`.
+1. Publicar `sitemap.xml` generado por `src/app/sitemap.ts` con solo `/`.
 2. Publicar `robots.txt` generado por `src/app/robots.ts` y verificar la URL absoluta del sitemap.
 3. Validar respuestas 200, canonical y metadata en producción.
 4. Registrar los redirects/410 heredados en el proveedor de hosting.

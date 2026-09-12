@@ -10,7 +10,7 @@ const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
 const consoleErrors = [];
 page.on("console", (message) => { if (message.type() === "error") consoleErrors.push(message.text()); });
 
-await page.goto(`${baseUrl}/cotizar`, { waitUntil: "networkidle" });
+await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
 await page.getByRole("button", { name: /Solicitar cotización/ }).click();
 if (await page.locator("p[role=alert]").count() < 7) throw new Error("Invalid form did not expose all required field errors.");
 
@@ -36,6 +36,13 @@ if (await page.getByRole("navigation", { name: "Navegación móvil" }).count()) 
 await page.goto(`${baseUrl}/privacidad`, { waitUntil: "networkidle" });
 if (await page.locator('meta[name="robots"]').getAttribute("content") !== "noindex, follow") throw new Error("Privacy page is not noindex, follow.");
 if ((await page.locator("body").innerText()).includes("[correo electrónico de contacto]")) throw new Error("Privacy page exposes a placeholder.");
+await page.goto(`${baseUrl}/cotizar`, { waitUntil: "networkidle" });
+if (!page.url().endsWith("/#cotizar")) throw new Error(`Quote redirect ended at ${page.url()}`);
+await page.locator('[data-map-status="ready"]').waitFor({ timeout: 10000 });
+if (await page.locator(".leaflet-marker-icon").count() !== 4) throw new Error("Coverage map does not expose four markers.");
+if (await page.locator(".leaflet-overlay-pane path").count() !== 3) throw new Error("Coverage map does not expose three coverage routes.");
+await page.locator(".leaflet-marker-icon").first().click();
+if (!(await page.getByText("Punto principal de cobertura").isVisible())) throw new Error("Coverage marker popup is missing.");
 if (consoleErrors.length) throw new Error(`Console errors: ${consoleErrors.join(" | ")}`);
 await page.goto(`${baseUrl}/missing-release-route`, { waitUntil: "networkidle" });
 if (!(await page.getByRole("heading", { name: "No encontramos esa ruta" }).isVisible())) throw new Error("404 page is missing.");

@@ -1,68 +1,55 @@
 "use client";
 
-import { importLibrary, setOptions } from "@googlemaps/js-api-loader";
 import { useEffect, useRef, useState } from "react";
 import { coverageLocations } from "@/data/coverage";
+import { mapConfig } from "@/data/map-config";
 
-const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ?? "";
-const mapId = process.env.NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID || "DEMO_MAP_ID";
+type MapStatus = "loading" | "ready" | "error";
 
-type MapStatus = "unconfigured" | "loading" | "ready" | "error";
+function pinIcon(L: typeof import("leaflet"), primary = false) {
+  return L.divIcon({
+    className: "galagom-map-pin",
+    html: `<span class="galagom-map-pin__head${primary ? " galagom-map-pin__head--primary" : ""}"><span class="galagom-map-pin__dot"></span></span>`,
+    iconSize: primary ? [34, 42] : [28, 36],
+    iconAnchor: primary ? [17, 42] : [14, 36],
+    popupAnchor: [0, primary ? -38 : -32],
+  });
+}
 
 export default function CoverageMap() {
   const mapElement = useRef<HTMLDivElement>(null);
-  const [status, setStatus] = useState<MapStatus>(apiKey ? "loading" : "unconfigured");
+  const [status, setStatus] = useState<MapStatus>("loading");
 
   useEffect(() => {
-    if (!apiKey || !mapElement.current) return;
+    if (!mapElement.current) return;
     let cancelled = false;
-    const markers: google.maps.marker.AdvancedMarkerElement[] = [];
-    const polylines: google.maps.Polyline[] = [];
+    let map: import("leaflet").Map | null = null;
 
     async function initializeMap() {
       try {
-        setOptions({ key: apiKey, v: "weekly" });
-        const [{ Map }, { AdvancedMarkerElement, PinElement }] = await Promise.all([importLibrary("maps"), importLibrary("marker")]);
+        const L = await import("leaflet");
         if (cancelled || !mapElement.current) return;
+        map = L.map(mapElement.current, { scrollWheelZoom: false, zoomControl: true, attributionControl: true });
+        L.tileLayer(mapConfig.tileUrl, { attribution: mapConfig.attribution, maxZoom: mapConfig.maxZoom }).addTo(map);
 
         const origin = coverageLocations[0];
-        const mapInstance = new Map(mapElement.current, {
-          center: origin.position,
-          mapId,
-          zoom: 8,
-          mapTypeControl: false,
-          streetViewControl: false,
-          fullscreenControl: true,
-          zoomControl: true,
-        });
-
-        const bounds = new google.maps.LatLngBounds();
+        const bounds = L.latLngBounds([]);
         coverageLocations.forEach((location) => {
-          bounds.extend(location.position);
-          const pin = new PinElement({
-            background: "#DC2626",
-            borderColor: "#B91C1C",
-            glyphColor: "#FFFFFF",
-            scale: location.primary ? 1.1 : 1,
-          });
-          markers.push(new AdvancedMarkerElement({ map: mapInstance, position: location.position, title: location.name, content: pin.element }));
+          const marker = L.marker([location.position.lat, location.position.lng], { title: location.name, alt: location.name, icon: pinIcon(L, location.primary) }).addTo(map as import("leaflet").Map);
+          const popup = document.createElement("div");
+          const title = document.createElement("strong");
+          title.textContent = location.name;
+          const detail = document.createElement("span");
+          detail.textContent = location.primary ? "Punto principal de cobertura" : "Destino mencionado";
+          popup.append(title, document.createElement("br"), detail);
+          marker.bindPopup(popup);
+          bounds.extend([location.position.lat, location.position.lng]);
         });
 
         coverageLocations.slice(1).forEach((destination) => {
-          polylines.push(new google.maps.Polyline({
-            map: mapInstance,
-            path: [origin.position, destination.position],
-            geodesic: true,
-            strokeColor: "#203050",
-            strokeOpacity: 0.75,
-            strokeWeight: 2,
-          }));
+          L.polyline([[origin.position.lat, origin.position.lng], [destination.position.lat, destination.position.lng]], { color: "#203050", weight: 2, opacity: 0.75, dashArray: "6 8" }).addTo(map as import("leaflet").Map);
         });
-
-        mapInstance.fitBounds(bounds, 64);
-        google.maps.event.addListenerOnce(mapInstance, "idle", () => {
-          if ((mapInstance.getZoom() ?? 0) > 9) mapInstance.setZoom(9);
-        });
+        map.fitBounds(bounds, { padding: [32, 32], maxZoom: 9 });
         setStatus("ready");
       } catch {
         if (!cancelled) setStatus("error");
@@ -72,15 +59,14 @@ export default function CoverageMap() {
     void initializeMap();
     return () => {
       cancelled = true;
-      markers.forEach((marker) => { marker.map = null; });
-      polylines.forEach((polyline) => { polyline.setMap(null); });
+      map?.remove();
+      map = null;
     };
   }, []);
 
-  return <div className="relative h-[380px] w-full overflow-hidden rounded-[var(--radius-md)] bg-surface sm:h-[500px]" data-map-status={status}>
-    <div ref={mapElement} className="h-full w-full" aria-hidden={status !== "ready"} aria-label="Mapa de cobertura de GALAGOM en Quintana Roo" />
-    {status === "unconfigured" && <div className="absolute inset-0 z-10 flex items-center justify-center bg-surface p-8 text-center" role="status"><div><svg className="mx-auto h-10 w-10 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true" focusable="false"><path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z" /><circle cx="12" cy="9" r="2.5" /></svg><p className="mt-4 text-sm font-bold uppercase tracking-[0.16em] text-secondary">Google Maps</p><p className="mt-3 text-lg font-extrabold text-text">Google Maps pendiente de configurar</p><p className="mt-2 max-w-sm text-sm leading-6 text-text-muted">Agrega <code className="rounded bg-white px-1.5 py-0.5 font-mono text-xs text-primary">NEXT_PUBLIC_GOOGLE_MAPS_API_KEY</code> para mostrar el mapa interactivo.</p></div></div>}
-    {status === "loading" && <div className="absolute inset-0 z-10 flex h-full animate-pulse items-center justify-center bg-surface" role="status" aria-label="Cargando mapa de cobertura"><span className="text-sm font-semibold text-text-muted">Cargando mapa de cobertura</span></div>}
-    {status === "error" && <div className="absolute inset-0 z-10 flex h-full items-center justify-center bg-surface p-8 text-center" role="alert"><p className="text-sm font-semibold text-text-muted">No fue posible cargar el mapa de cobertura.</p></div>}
+  return <div className="relative h-[400px] w-full overflow-hidden rounded-[var(--radius-md)] bg-surface sm:h-[540px]" data-map-status={status}>
+    <div ref={mapElement} className="h-full w-full" aria-label="Mapa de cobertura de GALAGOM en Quintana Roo" />
+    {status === "loading" && <div className="absolute inset-0 z-10 flex animate-pulse items-center justify-center bg-surface" role="status" aria-label="Cargando mapa de cobertura"><span className="text-sm font-semibold text-text-muted">Cargando mapa de cobertura</span></div>}
+    {status === "error" && <div className="absolute inset-0 z-10 flex items-center justify-center bg-surface p-8 text-center" role="alert"><p className="text-sm font-semibold text-text-muted">No fue posible cargar el mapa interactivo.</p></div>}
   </div>;
 }
