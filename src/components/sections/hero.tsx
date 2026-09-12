@@ -28,7 +28,7 @@ export default function Hero() {
           <h1 className="max-w-xl text-4xl font-extrabold leading-[1.05] tracking-[-0.045em] sm:text-6xl lg:text-[clamp(3.5rem,5.5vw,5rem)]">Logística que mueve tu negocio</h1>
           <p className="mt-7 max-w-xl text-base leading-7 text-white/75 sm:text-lg">Soluciones de transporte, distribución y almacenaje en Cancún y Quintana Roo, respaldadas por más de 17 años de experiencia.</p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <Button href="#contacto" size="large">Cotizar un flete <span className="ml-3" aria-hidden="true">↗</span></Button>
+            <Button href="/cotizar" size="large">Cotizar un flete <span className="ml-3" aria-hidden="true">↗</span></Button>
             <Button href="#servicios" size="large" variant="ghost" className="text-white hover:bg-white/10 hover:text-white">Conocer servicios <span className="ml-3" aria-hidden="true">↓</span></Button>
           </div>
           <div className="mt-14 flex flex-wrap gap-x-8 gap-y-5 border-t border-white/15 pt-6">

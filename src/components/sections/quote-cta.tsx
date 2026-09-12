@@ -1,0 +1,9 @@
+import Link from "next/link";
+import Button from "@/components/ui/button";
+import Container from "@/components/ui/container";
+
+const steps = [["01", "Cuéntanos", "Comparte los detalles de tu necesidad."], ["02", "Revisamos", "Conocemos el origen, destino y servicio."], ["03", "Te contactamos", "GALAGOM revisa cómo ayudarte."]] as const;
+
+export default function QuoteCta() {
+  return <section id="cotizar" className="bg-surface py-20 sm:py-24"><Container><div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-end lg:gap-20"><div><p className="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-secondary">Cotización</p><h2 className="text-3xl font-extrabold leading-tight tracking-[-0.04em] text-text sm:text-5xl">Cuéntanos qué necesitas mover</h2><p className="mt-5 max-w-md text-base leading-7 text-text-muted">Solicita información sobre transporte, almacenaje o distribución y comparte los detalles de tu operación.</p><Button className="mt-8" href="/cotizar" size="large">Solicitar cotización <span className="ml-3" aria-hidden="true">↗</span></Button></div><div className="grid gap-5 border-t border-border pt-6 sm:grid-cols-3 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">{steps.map(([number, title, description]) => <div key={number}><span className="text-xs font-bold tracking-[0.18em] text-secondary">{number}</span><h3 className="mt-5 text-base font-extrabold text-text">{title}</h3><p className="mt-2 text-sm leading-6 text-text-muted">{description}</p></div>)}</div></div><p className="mt-10 text-sm text-text-muted">¿Prefieres hablar directamente? <Link className="font-bold text-primary underline decoration-primary/30 underline-offset-4 hover:decoration-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary" href="tel:+529982225373">Llamar al +52 998 222 5373</Link></p></Container></section>;
+}

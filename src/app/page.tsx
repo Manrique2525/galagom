@@ -8,6 +8,7 @@ import CoverageSection from "@/components/coverage/coverage-section";
 import ServicesGrid from "@/components/services/services-grid";
 import UnitsSection from "@/components/units/units-section";
 import ThreePlSection from "@/components/three-pl/three-pl-section";
+import QuoteCta from "@/components/sections/quote-cta";
 import Container from "@/components/ui/container";
 import SectionHeading from "@/components/ui/section-heading";
 
@@ -27,6 +28,7 @@ export default function Home() {
     <AboutSection />
     <UnitsSection />
     <ThreePlSection />
+    <QuoteCta />
     <FinalCta />
   </>;
 }

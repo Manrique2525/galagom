@@ -25,6 +25,7 @@ src/
     globals.css
     layout.tsx
     page.tsx
+    cotizar/page.tsx
   components/
     layout/
       site-footer.tsx
@@ -45,12 +46,18 @@ src/
     services/
       service-card.tsx
       services-grid.tsx
+    forms/
+      quote-form.tsx
+      field-error.tsx
+      submit-status.tsx
   data/site.ts
   data/services.ts
   data/process.ts
   data/coverage.ts
   data/three-pl.ts
   lib/metadata.ts
+  lib/quote-schema.ts
+  lib/quote-service.ts
   styles/tokens.css
   types/site.ts
 ```
@@ -63,6 +70,7 @@ components/
   coverage/      # cobertura textual y mapa SVG editorial
   units/         # capacidad adaptada sin especificaciones de flota
   three-pl/      # ecosistema de servicios 3PL conectados
+  forms/         # formulario Client y estados de cotización
 ```
 
 ## Convenciones
@@ -71,7 +79,7 @@ components/
 - HTML semántico, landmarks y enlaces reales.
 - `Button` usa `Link` para destinos navegables y `<button>` para acciones nativas.
 - Los IDs de homepage son `servicios`, `proceso`, `cobertura`, `nosotros`, `unidades`, `3pl` y `contacto`.
-- No se publican schemas estructurados en Foundation: todavía no hay páginas comerciales finales ni datos locales completos confirmados.
+- No se publica structured data específico de la cotización; no hay backend ni confirmación de recepción.
 
 ## Metadata y assets
 
@@ -81,4 +89,4 @@ El logo se sirve desde un asset identificado de GALAGOM mediante `next/image` y 
 
 ## Siguientes fases
 
-El contenido de las nuevas secciones permanece en Server Components. Solo `process-timeline.tsx`, `coverage-map.tsx` y `three-pl-network.tsx` son Client Components por sus animaciones Motion; `reveal.tsx` sigue siendo el wrapper reutilizable. React Hook Form/Zod siguen reservados para la cotización. El formulario y las páginas internas no forman parte de esta entrega.
+El contenido permanece en Server Components siempre que es posible. Los visuales animados y el formulario son Client Components aislados. La capa `quote-service.ts` define el contrato de envío sin fingir una integración. El servidor futuro deberá repetir la validación y añadir protección anti-spam; actualmente no se envía email, no hay CRM y no se muestra éxito.

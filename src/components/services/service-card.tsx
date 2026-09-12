@@ -11,6 +11,6 @@ export default function ServiceCard({ service, className = "" }: { service: Serv
     <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-primary/[0.035] transition-transform duration-[var(--motion-base)] group-hover:scale-150" />
     <div className="relative flex items-start justify-between"><span className="text-xs font-bold tracking-[0.18em] text-secondary">{service.index}</span><span className="text-primary-soft"><ServiceIcon icon={service.icon} /></span></div>
     <div className="relative mt-12"><h3 className="max-w-xs text-xl font-extrabold leading-tight tracking-[-0.025em] text-text">{service.title}</h3><p className="mt-3 max-w-sm text-sm leading-6 text-text-muted">{service.description}</p></div>
-    <Link className="relative mt-7 inline-flex w-fit items-center gap-2 text-xs font-bold uppercase tracking-[0.15em] text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary" href="#contacto">Solicitar servicio <span className="transition-transform duration-[var(--motion-fast)] group-hover:translate-x-1" aria-hidden="true">→</span></Link>
+    <Link className="relative mt-7 inline-flex w-fit items-center gap-2 text-xs font-bold uppercase tracking-[0.15em] text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary" href="/cotizar">Solicitar servicio <span className="transition-transform duration-[var(--motion-fast)] group-hover:translate-x-1" aria-hidden="true">→</span></Link>
   </article>;
 }

@@ -68,3 +68,11 @@ Los fondos del hero, cobertura y CTA usan exclusivamente la gama azul corporativ
 - Las duraciones de rutas y conexiones se mantienen entre 900 y 1000 ms; los reveals de copy usan 550 ms.
 - `useReducedMotion` muestra líneas, nodos y contenido completos desde el inicio.
 - No hay loops, partículas, parallax, canvas ni WebGL.
+
+## Form controls
+
+- Inputs, select nativo y textarea usan surface claro, border corporativo, radius pequeño y focus ring azul.
+- Los labels son siempre visibles; el placeholder solo aporta contexto.
+- Los errores usan texto claro, color de error contenido y `aria-describedby`.
+- La composición del formulario es de una columna en móvil y usa dos columnas selectivamente desde `sm`.
+- Los controles mantienen altura táctil cómoda y no dependen de hover.
