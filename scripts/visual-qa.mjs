@@ -49,7 +49,8 @@ for (const path of pages) {
       }
       const serviceCards = page.locator("#servicios article");
       if (await serviceCards.count() !== 5) issues.push("Services does not expose five cards");
-      if (await serviceCards.locator("img").count() !== 5) issues.push("Services cards do not all expose an image");
+      if (await serviceCards.locator('img[data-landing="main"]').count() !== 5) issues.push("Services cards do not all expose an image");
+      if (await serviceCards.locator('img[data-landing="bg"]').count() !== 5) issues.push("Services cards do not all expose a decorative background");
       const cardBoxes = await serviceCards.evaluateAll((cards) => cards.map((card) => { const { width, height } = card.getBoundingClientRect(); return { width, height }; }));
       for (const title of ["Fletes Isla Mujeres y Cozumel", "Carga nacional y local", "Soluciones 3PL"]) {
         const card = serviceCards.filter({ hasText: title });
