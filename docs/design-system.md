@@ -53,4 +53,18 @@ Manrope es la única familia actual. Se carga mediante `next/font/google` y se e
 
 Homepage Core usa Motion únicamente para reveals de secciones y cards cuando entran al viewport. Las transiciones CSS cubren color, border, elevación y desplazamientos mínimos. No hay parallax, rutas animadas ni animaciones infinitas. `useReducedMotion` elimina el desplazamiento y deja el contenido visible directamente; la animación nunca es necesaria para comprender el contenido.
 
-Los fondos del hero y CTA usan exclusivamente la gama azul corporativa, con grid técnico y rutas SVG estáticas como lenguaje visual de movimiento.
+Los fondos del hero, cobertura y CTA usan exclusivamente la gama azul corporativa, con grid técnico y rutas SVG como lenguaje visual de movimiento. El mapa y las ilustraciones de unidades usan el mismo stroke fino, nodos circulares y proporciones contenidas.
+
+## Patrones de Logistics Experience
+
+- El proceso usa una línea de progreso única: horizontal en desktop y vertical en móvil.
+- Cobertura usa un SVG editorial del estado con Cancún como nodo principal y rutas hacia Holbox, Isla Mujeres y Cozumel.
+- Unidades usa una ilustración lineal genérica; no representa un modelo específico de vehículo.
+- 3PL usa una red horizontal de servicios conectados en desktop y un eje vertical en móvil, diferenciándose del timeline de proceso.
+
+## Motion
+
+- `process-timeline`, `coverage-map` y `three-pl-network` dibujan líneas una sola vez al entrar en viewport.
+- Las duraciones de rutas y conexiones se mantienen entre 900 y 1000 ms; los reveals de copy usan 550 ms.
+- `useReducedMotion` muestra líneas, nodos y contenido completos desde el inicio.
+- No hay loops, partículas, parallax, canvas ni WebGL.

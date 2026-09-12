@@ -47,9 +47,22 @@ src/
       services-grid.tsx
   data/site.ts
   data/services.ts
+  data/process.ts
+  data/coverage.ts
+  data/three-pl.ts
   lib/metadata.ts
   styles/tokens.css
   types/site.ts
+```
+
+Los módulos de Homepage Core y Logistics Experience se organizan así:
+
+```text
+components/
+  process/       # historia origen -> destino
+  coverage/      # cobertura textual y mapa SVG editorial
+  units/         # capacidad adaptada sin especificaciones de flota
+  three-pl/      # ecosistema de servicios 3PL conectados
 ```
 
 ## Convenciones
@@ -57,7 +70,7 @@ src/
 - Componentes con export default y una responsabilidad clara.
 - HTML semántico, landmarks y enlaces reales.
 - `Button` usa `Link` para destinos navegables y `<button>` para acciones nativas.
-- Los IDs de Homepage Core son `servicios`, `nosotros` y `contacto`; `cobertura` queda preparado en la navegación para la fase posterior.
+- Los IDs de homepage son `servicios`, `proceso`, `cobertura`, `nosotros`, `unidades`, `3pl` y `contacto`.
 - No se publican schemas estructurados en Foundation: todavía no hay páginas comerciales finales ni datos locales completos confirmados.
 
 ## Metadata y assets
@@ -68,4 +81,4 @@ El logo se sirve desde un asset identificado de GALAGOM mediante `next/image` y 
 
 ## Siguientes fases
 
-La siguiente fase puede añadir cobertura y proceso sin convertir la página completa en Client Component. React Hook Form/Zod siguen reservados para la cotización. El formulario, las páginas internas y la cobertura no forman parte de esta entrega.
+El contenido de las nuevas secciones permanece en Server Components. Solo `process-timeline.tsx`, `coverage-map.tsx` y `three-pl-network.tsx` son Client Components por sus animaciones Motion; `reveal.tsx` sigue siendo el wrapper reutilizable. React Hook Form/Zod siguen reservados para la cotización. El formulario y las páginas internas no forman parte de esta entrega.
