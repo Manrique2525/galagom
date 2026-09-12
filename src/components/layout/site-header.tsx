@@ -29,7 +29,7 @@ export default function SiteHeader() {
         <Image src={isScrolled ? "https://www.galagom.com/wp-content/uploads/2024/11/logo-galagom-350.png" : "https://www.galagom.com/wp-content/uploads/2024/11/logo-galagom-white.png"} alt="GALAGOM Soluciones Logísticas" width={112} height={82} className="h-14 w-auto object-contain" priority />
       </Link>
       <nav className="hidden items-center gap-7 lg:flex" aria-label="Navegación principal">
-        {siteConfig.navigation.map((item) => <Link className={`text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary ${isScrolled ? "text-secondary hover:text-primary" : "text-white/80 hover:text-white"}`} href={item.href} key={item.href}>{item.label}</Link>)}
+        {siteConfig.navigation.map((item) => <Link className={`relative py-2 text-sm font-semibold transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:transition-[width] after:duration-200 hover:after:w-full focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary ${isScrolled ? "text-primary after:bg-primary hover:text-secondary" : "text-white/90 after:bg-white hover:text-white"}`} href={item.href} key={item.href}>{item.label}</Link>)}
         <Link className="rounded-sm bg-primary px-5 py-3 text-sm font-bold !text-white transition-colors hover:bg-primary-soft focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary" href="/cotizar">Cotizar flete</Link>
       </nav>
       <MobileNavigation items={siteConfig.navigation} isScrolled={isScrolled} />

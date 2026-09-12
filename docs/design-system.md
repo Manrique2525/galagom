@@ -58,7 +58,7 @@ Los fondos del hero, cobertura y CTA usan exclusivamente la gama azul corporativ
 ## Patrones de Logistics Experience
 
 - El proceso usa una línea de progreso única: horizontal en desktop y vertical en móvil.
-- Cobertura usa un SVG editorial claro, inspirado en mapas urbanos, con agua suave, masa territorial, trazos viales, pines rojos y Cancún como origen principal hacia Holbox, Isla Mujeres y Cozumel.
+- Cobertura usa Google Maps Platform real, con tiles, carreteras, branding oficial, pines rojos y Cancún como origen principal hacia Holbox, Isla Mujeres y Cozumel. Sin configuración, se muestra un estado de desarrollo explícito, no un mapa falso.
 - Unidades usa una ilustración lineal genérica; no representa un modelo específico de vehículo.
 - 3PL usa una red horizontal de servicios conectados en desktop y un eje vertical en móvil, diferenciándose del timeline de proceso.
 
