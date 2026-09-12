@@ -5,6 +5,7 @@ const browser = await chromium.launch({ headless: true });
 const viewports = [
   [320, 800],
   [390, 844],
+  [430, 844],
   [768, 1024],
   [1440, 1000],
   [1920, 1080],
@@ -37,6 +38,9 @@ for (const path of pages) {
     }
     if (path === "/" && width === 1440) await page.screenshot({ path: "docs/screenshots/header-home-overlay.png" });
     if (path === "/cotizar" && width === 1440) await page.screenshot({ path: "docs/screenshots/header-quote-solid.png" });
+    if (path === "/" && width === 1440) await page.screenshot({ path: "docs/screenshots/navbar-final-home-top.png" });
+    if (path === "/cotizar" && width === 1440) await page.screenshot({ path: "docs/screenshots/navbar-final-quote.png" });
+    if (path === "/" && width === 390 && !mapsConfigured) await page.locator("[data-map-status]").screenshot({ path: "docs/screenshots/google-map-no-key.png" });
     if (path === "/" && width === 1440) await page.screenshot({ path: "docs/screenshots/hotfix-home-top-1440.png" });
     if (path === "/" && width === 390) await page.screenshot({ path: "docs/screenshots/hotfix-home-390.png" });
     await page.evaluate(async () => {
@@ -51,6 +55,8 @@ for (const path of pages) {
       await page.evaluate(() => window.scrollTo(0, 900));
       await page.waitForTimeout(300);
       await page.screenshot({ path: "docs/screenshots/header-home-solid.png" });
+      await page.screenshot({ path: "docs/screenshots/navbar-final-home-middle.png" });
+      await page.locator("#cobertura").screenshot({ path: "docs/screenshots/navbar-final-coverage.png" });
       await page.evaluate(() => window.scrollTo(0, 0));
     }
     if ((path === "/" || path === "/cotizar") && (width === 390 || width === 1440)) {
@@ -74,6 +80,12 @@ for (const path of pages) {
       await menuButton.click();
       await page.keyboard.press("Escape");
       if (await page.getByRole("navigation", { name: "Navegación móvil" }).count()) issues.push("mobile menu did not close on Escape");
+    }
+    if (path === "/" && width === 1440) {
+      const navItems = ["Inicio", "Servicios", "Cobertura", "Nosotros", "Contacto", "Cotizar flete"];
+      for (const item of navItems) if (!(await page.getByRole("link", { name: item, exact: true }).isVisible())) issues.push(`navbar item is not visible: ${item}`);
+      await page.getByRole("link", { name: "Servicios", exact: true }).hover();
+      await page.screenshot({ path: "docs/screenshots/navbar-hover.png" });
     }
     await page.close();
   }

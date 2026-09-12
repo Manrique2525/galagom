@@ -13,7 +13,7 @@ Se añadió `motion` para los reveals ligeros de Homepage Core. `@googlemaps/js-
 
 ## Rendering
 
-`src/app/layout.tsx`, `page.tsx`, contenido de hero, servicios, nosotros, CTA, footer y UI base son Server Components. `site-header.tsx` es Client Component para observar la salida del hero mediante `IntersectionObserver` y cambiar de header transparente a header claro. `mobile-navigation.tsx` gestiona estado y `Escape`. `reveal.tsx` es un wrapper Client mínimo para Motion y reduced motion.
+`src/app/layout.tsx`, `page.tsx`, contenido de hero, servicios, nosotros, CTA, footer, `site-header.tsx` y UI base son Server Components. `mobile-navigation.tsx` gestiona estado y `Escape`. `reveal.tsx`, `process-timeline.tsx`, `coverage-map.tsx`, `three-pl-network.tsx` y `quote-form.tsx` son Client Components aislados para Motion, Google Maps o interacción.
 
 No se usa estado global. Los datos públicos se centralizan en `src/data/site.ts` y los tipos simples viven en `src/types/site.ts`.
 

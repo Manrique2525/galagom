@@ -1,5 +1,26 @@
 # Google Maps Platform
 
+## Quick setup
+
+1. Crear un proyecto en Google Cloud.
+2. Activar **Maps JavaScript API**.
+3. Crear una API key.
+4. Crear un Map ID habilitado para Advanced Markers.
+5. Copiar estas variables a `.env.local`:
+
+```text
+NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=...
+NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID=...
+```
+
+6. Reiniciar el servidor:
+
+```bash
+npm run dev
+```
+
+La key debe restringirse por HTTP referrers y por API en Google Cloud. Nunca se debe versionar `.env.local`.
+
 ## Implementación
 
 La sección `#cobertura` usa Google Maps JavaScript API mediante `@googlemaps/js-api-loader`. No usa iframe, Embed API, SVG alternativo, imágenes de mapas, Leaflet, Mapbox, Places API, Geocoding API, Directions API ni Routes API.
