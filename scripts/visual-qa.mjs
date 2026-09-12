@@ -64,6 +64,8 @@ for (const path of pages) {
       if (await page.locator(".leaflet-marker-icon").count() !== 4) issues.push("Leaflet map does not expose four markers");
     }
     if (path === "/" && width === 1440) await page.screenshot({ path: "docs/screenshots/header-home-overlay.png" });
+    if (path === "/" && width === 1440) await page.screenshot({ path: "docs/screenshots/navbar-logo-large-1440.png" });
+    if (path === "/" && width === 390) await page.screenshot({ path: "docs/screenshots/navbar-logo-large-390.png" });
     if (path === "/cotizar" && width === 1440) await page.screenshot({ path: "docs/screenshots/header-quote-solid.png" });
     if (path === "/" && width === 1440) await page.screenshot({ path: "docs/screenshots/navbar-final-home-top.png" });
     if (path === "/cotizar" && width === 1440) await page.screenshot({ path: "docs/screenshots/navbar-final-quote.png" });

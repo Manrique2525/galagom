@@ -84,6 +84,7 @@ const desktopErrors = [];
 desktop.on("console", (m) => { if (m.type() === "error") desktopErrors.push(m.text()); });
 await heroFlow(desktop, ["typewriter-start", "typewriter-mid", "typewriter-final"]);
 await pageScreenshot(desktop, "hero-corporate-copy-1440.png");
+await pageScreenshot(desktop, "hero-full-corporate-copy-1440.png");
 console.log("desktop consoleErrors", desktopErrors);
 if (desktopErrors.length) issues.push("desktop console errors: " + desktopErrors.join(" | "));
 
@@ -91,6 +92,7 @@ const mobileCtx = await browser.newContext({ viewport: { width: 390, height: 844
 const mobile = await mobileCtx.newPage();
 await heroFlow(mobile, []);
 await pageScreenshot(mobile, "hero-corporate-copy-390.png");
+await pageScreenshot(mobile, "hero-full-corporate-copy-390.png");
 
 async function pageScreenshot(page, name) {
   await page.evaluate(() => window.scrollTo(0, 0));
