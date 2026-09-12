@@ -187,7 +187,6 @@ for (const [width, height] of [[320, 800], [375, 812], [390, 844], [430, 932]]) 
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
   const rm = await page.evaluate(() => {
-    const groupEl = document.querySelector("[data-whatsapp-group]");
     const btn = document.querySelector("a[data-event=whatsapp_click]");
     const badge = btn.querySelector("span");
     const label = document.querySelector("[data-whatsapp-label]");
