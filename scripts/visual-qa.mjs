@@ -35,7 +35,8 @@ for (const path of pages) {
     if (path === "/" && (width === 390 || width === 1440)) {
       const serviceFile = width === 390 ? "v3-services-mobile" : "v3-services-desktop";
       const serviceFileV31 = width === 390 ? "services-v31-mobile" : "services-v31-desktop";
-      const requiredSections = [["hero-section", width === 390 ? "v3-hero-mobile" : "v3-hero-desktop"], ["servicios", serviceFile], ["servicios", serviceFileV31]];
+      const serviceFileFixed = width === 390 ? "services-layout-fixed-mobile" : "services-layout-fixed-desktop";
+      const requiredSections = [["hero-section", width === 390 ? "v3-hero-mobile" : "v3-hero-desktop"], ["servicios", serviceFile], ["servicios", serviceFileV31], ["servicios", serviceFileFixed]];
       for (const [id, file] of requiredSections) {
         const section = page.locator(`#${id}`);
         await section.screenshot({ path: `docs/screenshots/${file}.png` });
@@ -100,6 +101,7 @@ for (const path of pages) {
     if (path === "/" && width === 390) await page.screenshot({ path: "docs/screenshots/photo-home-390.png", fullPage: true });
     if (path === "/" && width === 390) await page.screenshot({ path: "docs/screenshots/home-premium-390.png", fullPage: true });
     if (path === "/" && width === 1440) await page.screenshot({ path: "docs/screenshots/services-v31-full-home.png", fullPage: true });
+    if (path === "/" && width === 1440) await page.screenshot({ path: "docs/screenshots/services-layout-fixed-full.png", fullPage: true });
     if (path === "/" && [390, 768, 1440, 1920].includes(width)) await page.screenshot({ path: `docs/screenshots/v2-home-${width}.png`, fullPage: true });
     if (path === "/" && [390, 1440].includes(width)) await page.screenshot({ path: `docs/screenshots/v3-home-${width}.png`, fullPage: true });
     if (path === "/" && width === 1440) await page.locator("footer").screenshot({ path: "docs/screenshots/v2-footer.png" });
