@@ -40,7 +40,7 @@ Manrope es la única familia actual. Se carga mediante `next/font/google` y se e
 - `Container`: ancho y padding horizontal compartidos.
 - `Button`: variantes `primary`, `secondary`, `ghost`; tamaños `default` y `large`.
 - `SectionHeading`: eyebrow opcional, heading, descripción y alineación.
-- Header, navegación móvil, footer y skip link forman la base de layout.
+- Header, navegación móvil, footer, skip link y formulario forman la base de layout.
 
 ## Radius y sombras
 
@@ -59,7 +59,7 @@ Los fondos del hero, cobertura y CTA usan exclusivamente la gama azul corporativ
 
 - El proceso usa una línea de progreso única: horizontal en desktop y vertical en móvil.
 - Cobertura usa Leaflet con tiles de OpenStreetMap, pines rojos y Cancún como origen principal hacia Holbox, Isla Mujeres y Cozumel. La attribution de OpenStreetMap permanece visible.
-- Unidades usa una ilustración lineal genérica; no representa un modelo específico de vehículo.
+- La capacidad de unidades se integra editorialmente en About; la ilustración lineal genérica no representa un modelo específico de vehículo.
 - 3PL usa una red horizontal de servicios conectados en desktop y un eje vertical en móvil, diferenciándose del timeline de proceso. Una imagen de almacén oscurecida funciona como contexto secundario.
 
 ## Motion
@@ -80,3 +80,20 @@ Los fondos del hero, cobertura y CTA usan exclusivamente la gama azul corporativ
 ## Temporary photography
 
 Las fotografías actuales de Pexels son un recurso temporal y siempre se presentan como contexto de transporte/logística, nunca como flota, personal o instalaciones de GALAGOM. Se usa overlay azul corporativo y `object-cover` para integrarlas con los diagramas. El Hero es la única imagen con `priority`; las imágenes de cards y Nosotros son lazy por defecto. Fuentes y sustitución: `docs/temporary-assets.md`.
+
+## Premium V2 tokens
+
+- `--section-space-desktop`: espacio vertical compartido para secciones editoriales amplias.
+- `--section-space-mobile`: ritmo vertical compacto para móvil.
+- `--content-max`: límite de composiciones principales.
+- `--editorial-max`: límite de copy largo.
+- `--card-radius` y `--image-radius`: radios diferenciados para superficies y fotografía.
+- `--line-color` y `--node-size`: lenguaje de rutas y nodos.
+- `--motion-fast`, `--motion-medium` y `--motion-ambient`: interacción, reveals y ambiente.
+
+## Motion system final
+
+- Ambient: 8–12 s, sutil y no esencial.
+- Scroll reveals: 350–550 ms, one-shot y siempre con contenido visible desde SSR.
+- Interaction: 180–260 ms para hover/focus.
+- No se usan partículas, loops rápidos, parallax, canvas o WebGL.

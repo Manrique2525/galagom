@@ -20,7 +20,7 @@ export default function MobileNavigation({ items }: { items: NavItem[] }) {
     </button>
     {isOpen && <nav id="mobile-menu" className="absolute inset-x-0 top-20 z-40 border-b border-border bg-white px-5 py-5 shadow-[var(--shadow-soft)]" aria-label="Navegación móvil">
       <div className="mx-auto flex max-w-[var(--container-width)] flex-col gap-1">
-        {items.map((item) => <Link className="rounded-sm px-3 py-3 text-sm font-semibold text-secondary hover:bg-surface hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary" href={item.href} key={item.href} onClick={() => setIsOpen(false)}>{item.label}</Link>)}
+        {items.map((item) => <Link className="rounded-sm px-3 py-3 text-sm font-semibold text-primary hover:bg-surface hover:text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary" href={item.href} key={item.href} onClick={() => setIsOpen(false)}>{item.label}</Link>)}
         <Link className="mt-2 rounded-sm bg-primary px-3 py-3 text-center text-sm font-bold text-white hover:bg-primary-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary" href="/#cotizar" onClick={() => setIsOpen(false)}>Cotizar flete</Link>
       </div>
     </nav>}

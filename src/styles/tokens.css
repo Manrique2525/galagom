@@ -9,7 +9,15 @@
   --color-text: #151b26;
   --color-text-muted: #697386;
   --gradient-corporate: linear-gradient(135deg, #16243d 0%, #203050 45%, #30466f 100%);
-  --container-width: 1280px;
+  --container-width: 1360px;
+  --content-max: 1360px;
+  --editorial-max: 720px;
+  --section-space-desktop: 7rem;
+  --section-space-mobile: 4.5rem;
+  --card-radius: 1.25rem;
+  --image-radius: 1.75rem;
+  --line-color: #d9e0e8;
+  --node-size: 0.625rem;
   --radius-sm: 0.375rem;
   --radius-md: 0.625rem;
   --radius-lg: 1rem;
@@ -17,6 +25,7 @@
   --motion-fast: 180ms;
   --motion-base: 300ms;
   --motion-slow: 500ms;
+  --motion-ambient: 10s;
 }
 
 @theme inline {

@@ -5,7 +5,7 @@
 | URL nueva | Estado | Acción |
 | --- | --- | --- |
 | `/` | Publicable | Canonical a `https://www.galagom.com/`. |
-| `/#cotizar` | Conversión homepage | El formulario completo vive dentro de la landing. |
+ | `/#cotizar` | Conversión homepage | El formulario completo vive dentro de la landing. |
 
 `/servicios` no se crea en esta fase: con el contenido disponible sería una copia del grid de homepage y no tendría valor independiente suficiente. Tampoco se crean páginas individuales de servicios o localidades.
 

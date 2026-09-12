@@ -4,9 +4,12 @@ const baseUrl = process.env.BASE_URL ?? "http://localhost:3000";
 const browser = await chromium.launch({ headless: true });
 const viewports = [
   [320, 800],
+  [375, 844],
   [390, 844],
   [430, 844],
   [768, 1024],
+  [1024, 1000],
+  [1280, 1000],
   [1440, 1000],
   [1920, 1080],
 ];
@@ -30,8 +33,7 @@ for (const path of pages) {
     if (consoleErrors.length) issues.push(`${path} console errors at ${width}px: ${consoleErrors.join(" | ")}`);
     if (path === "/" && width === 390) await page.locator('[data-map-status="ready"]').waitFor({ timeout: 10000 });
     if (path === "/" && width === 1440) {
-      await page.screenshot({ path: "docs/screenshots/home-premium-1440.png" });
-      for (const [id, file] of [["hero-section", "hero-premium"], ["servicios", "services-premium"], ["proceso", "process-premium"], ["cobertura", "leaflet-map-premium"], ["3pl", "3pl-premium"], ["cotizar", "quote-premium"]]) {
+      for (const [id, file] of [["hero-section", "v2-hero"], ["servicios", "v2-services"], ["proceso", "v2-process"], ["cobertura", "v2-map"], ["3pl", "v2-3pl"], ["cotizar", "v2-quote"]]) {
         const section = id === "3pl" ? page.locator('[id="3pl"]') : page.locator(`#${id}`);
         await section.screenshot({ path: `docs/screenshots/${file}.png` });
       }
@@ -64,7 +66,7 @@ for (const path of pages) {
       await page.locator("#cobertura").screenshot({ path: "docs/screenshots/navbar-final-coverage.png" });
       await page.evaluate(() => window.scrollTo(0, 0));
     }
-    if ((path === "/" || path === "/cotizar") && (width === 390 || width === 1440)) {
+    if ((path === "/" || path === "/cotizar") && [390, 768, 1440, 1920].includes(width)) {
       await page.addStyleTag({ content: "header { position: absolute !important; }" });
     }
     if (path === "/" && width === 390) await page.screenshot({ path: "docs/screenshots/home-390.png", fullPage: true });
@@ -77,6 +79,8 @@ for (const path of pages) {
     if (path === "/" && width === 1440) await page.screenshot({ path: "docs/screenshots/photo-home-1440.png", fullPage: true });
     if (path === "/" && width === 390) await page.screenshot({ path: "docs/screenshots/photo-home-390.png", fullPage: true });
     if (path === "/" && width === 390) await page.screenshot({ path: "docs/screenshots/home-premium-390.png", fullPage: true });
+    if (path === "/" && [390, 768, 1440, 1920].includes(width)) await page.screenshot({ path: `docs/screenshots/v2-home-${width}.png`, fullPage: true });
+    if (path === "/" && width === 1440) await page.locator("footer").screenshot({ path: "docs/screenshots/v2-footer.png" });
     if (path === "/cotizar" && width === 1440) await page.screenshot({ path: "docs/screenshots/photo-quote-1440.png", fullPage: true });
     if (path === "/cotizar" && width === 390) await page.screenshot({ path: "docs/screenshots/photo-quote-390.png", fullPage: true });
     if (path === "/" && width === 390) {

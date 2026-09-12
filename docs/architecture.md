@@ -43,14 +43,11 @@ src/
       container.tsx
       section-heading.tsx
       reveal.tsx
+      route-decor.tsx
     sections/
       hero.tsx
-      trust-strip.tsx
       about-section.tsx
-      final-cta.tsx
       quote-cta.tsx
-    ui/
-      route-decor.tsx
     services/
       service-card.tsx
       services-grid.tsx
@@ -65,6 +62,7 @@ src/
   data/process.ts
   data/coverage.ts
   data/three-pl.ts
+  data/map-config.ts
   lib/metadata.ts
   lib/quote-schema.ts
   lib/quote/
@@ -83,7 +81,6 @@ Los módulos de Homepage Core y Logistics Experience se organizan así:
 components/
   process/       # historia origen -> destino
   coverage/      # cobertura textual y Leaflet/OpenStreetMap
-  units/         # capacidad adaptada sin especificaciones de flota
   three-pl/      # ecosistema de servicios 3PL conectados
   forms/         # formulario Client y estados de cotización
 ```

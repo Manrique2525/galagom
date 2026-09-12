@@ -34,9 +34,10 @@ export default function Hero() {
             <Button href="/#cotizar" size="large">Cotizar un flete <span className="ml-3" aria-hidden="true">↗</span></Button>
             <Button href="#servicios" size="large" variant="ghost" className="text-white hover:bg-white/10 hover:text-white">Conocer servicios <span className="ml-3" aria-hidden="true">↓</span></Button>
           </div>
-          <div className="mt-14 flex flex-wrap gap-x-8 gap-y-5 border-t border-white/15 pt-6">
+          <div className="mt-14 grid grid-cols-2 gap-y-5 border-t border-white/15 pt-6 sm:grid-cols-4">
             <div><strong className="block text-2xl font-extrabold tracking-tight">17+</strong><span className="text-xs text-white/55">Años de experiencia</span></div>
-            <div><strong className="block text-2xl font-extrabold tracking-tight">Quintana Roo</strong><span className="text-xs text-white/55">Cobertura</span></div>
+            <div><strong className="block text-lg font-extrabold tracking-tight sm:text-xl">Quintana Roo</strong><span className="text-xs text-white/55">Cobertura</span></div>
+            <div><strong className="block text-2xl font-extrabold tracking-tight">Atención</strong><span className="text-xs text-white/55">Personalizada</span></div>
             <div><strong className="block text-2xl font-extrabold tracking-tight">3PL</strong><span className="text-xs text-white/55">Soluciones integrales</span></div>
           </div>
         </div>
