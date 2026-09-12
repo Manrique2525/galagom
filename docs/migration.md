@@ -9,7 +9,7 @@
 
 `/servicios` no se crea en esta fase: con el contenido disponible sería una copia del grid de homepage y no tendría valor independiente suficiente. Tampoco se crean páginas individuales de servicios o localidades.
 
-`/privacidad` permanece fuera del sitemap y no se publica hasta que el aviso legal y sus placeholders sean validados.
+`/privacidad` existe técnicamente con `noindex, follow`, permanece fuera del sitemap y requiere revisión legal antes de indexarse.
 
 ## Rutas heredadas
 

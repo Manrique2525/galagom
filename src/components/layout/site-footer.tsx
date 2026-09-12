@@ -17,7 +17,7 @@ export default function SiteFooter() {
         </div>
         <div>
           <h2 className="text-sm font-bold uppercase tracking-[0.15em] text-white/60">Sitio</h2>
-          <span className="mt-4 inline-block text-sm text-white/60">Aviso de privacidad</span>
+          <Link className="mt-4 inline-block text-sm text-white/80 underline decoration-white/30 underline-offset-4 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" href="/privacidad">Aviso de privacidad</Link>
         </div>
       </div>
       <div className="mt-12 border-t border-white/15 pt-5 text-xs text-white/50">Derechos Reservados © {new Date().getFullYear()} | GALAGOM Soluciones Logísticas</div>

@@ -9,6 +9,7 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
+    "test:e2e": "node scripts/e2e.mjs",
     "qa:visual": "node scripts/visual-qa.mjs"
   },
   "dependencies": {

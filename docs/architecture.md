@@ -26,9 +26,11 @@ src/
     layout.tsx
     page.tsx
     cotizar/page.tsx
+    privacidad/page.tsx
     not-found.tsx
     sitemap.ts
     robots.ts
+    api/quote/route.ts
   components/
     layout/
       site-footer.tsx
