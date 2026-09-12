@@ -1,16 +1,11 @@
 export type CoverageLocation = {
   name: string;
+  detail: string;
   position: { lat: number; lng: number };
   primary?: boolean;
 };
 
 export const coverageLocations: CoverageLocation[] = [
-  { name: "Cancún", position: { lat: 21.16056, lng: -86.8475 }, primary: true },
-  { name: "Holbox", position: { lat: 21.53778, lng: -87.22 } },
-  { name: "Isla Mujeres", position: { lat: 21.233, lng: -86.733 } },
-  { name: "Cozumel", position: { lat: 20.42, lng: -86.92 } },
+  { name: "Tijuana", detail: "Cobertura nacional", position: { lat: 32.5149, lng: -117.0382 } },
+  { name: "Cancún, Quintana Roo", detail: "Presencia GALAGOM", position: { lat: 21.1619, lng: -86.8515 }, primary: true },
 ];
-
-export const coverageDestinations = coverageLocations.map(({ name }) => name);
-
-export type CoverageDestination = (typeof coverageLocations)[number]["name"];

@@ -11,6 +11,11 @@ const consoleErrors = [];
 page.on("console", (message) => { if (message.type() === "error") consoleErrors.push(message.text()); });
 
 await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+const homeText = await page.evaluate(() => document.body.textContent ?? "");
+for (const term of ["Cobertura nacional", "Tijuana", "Quintana Roo"]) if (!homeText.includes(term)) throw new Error(`Homepage does not mention "${term}".`);
+const coverageText = await page.evaluate(() => document.querySelector("#cobertura")?.textContent ?? "");
+if (!coverageText.includes("Conectamos México de punta a punta.") || !coverageText.includes("Tijuana → Quintana Roo")) throw new Error("Coverage section lost the national concept.");
+if (coverageText.includes("Holbox")) throw new Error("Coverage still repeats island destinations that belong to Services.");
 await page.getByRole("button", { name: /Solicitar cotización/ }).click();
 if (await page.locator("p[role=alert]").count() < 7) throw new Error("Invalid form did not expose all required field errors.");
 
@@ -60,14 +65,17 @@ if ((await page.locator("body").innerText()).includes("[correo electrónico de c
 await page.goto(`${baseUrl}/cotizar`, { waitUntil: "networkidle" });
 if (!page.url().endsWith("/#cotizar")) throw new Error(`Quote redirect ended at ${page.url()}`);
 await page.locator('[data-map-status="ready"]').waitFor({ timeout: 10000 });
-if (await page.locator(".leaflet-marker-icon").count() !== 4) throw new Error("Coverage map does not expose four markers.");
-if (await page.locator(".leaflet-overlay-pane path").count() !== 3) throw new Error("Coverage map does not expose three coverage routes.");
+if (await page.locator(".leaflet-marker-icon").count() !== 2) throw new Error("Coverage map does not expose the two national markers (Tijuana, Cancún).");
+if (await page.locator(".leaflet-overlay-pane path").count() < 1) throw new Error("Coverage map does not expose a national coverage route.");
 await page.locator(".leaflet-marker-icon").first().click();
-if (!(await page.getByText("Punto principal de cobertura").isVisible())) throw new Error("Coverage marker popup is missing.");
+const popupBox = page.locator(".leaflet-popup-content");
+await popupBox.waitFor({ timeout: 3000 });
+const popupText = await popupBox.innerText();
+if (!popupText.includes("Tijuana") || !popupText.includes("Cobertura nacional")) throw new Error(`Tijuana coverage popup is missing: ${popupText}`);
 if (consoleErrors.length) throw new Error(`Console errors: ${consoleErrors.join(" | ")}`);
 await page.goto(`${baseUrl}/missing-release-route`, { waitUntil: "networkidle" });
 if (!(await page.getByRole("heading", { name: "No encontramos esa ruta" }).isVisible())) throw new Error("404 page is missing.");
 
 await page.close();
 await browser.close();
-console.log("E2E passed: invalid validation, provider error preservation, mobile keyboard flow and mobile drawer.");
+console.log("E2E passed: national coverage copy & map, mobile drawer, whatsapp and form flows.");

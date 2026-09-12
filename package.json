@@ -13,7 +13,8 @@
     "qa:visual": "node scripts/visual-qa.mjs",
     "qa:typewriter": "node scripts/typewriter-qa.mjs",
     "qa:mobile-menu": "node scripts/mobile-menu-qa.mjs",
-    "qa:whatsapp": "node scripts/whatsapp-qa.mjs"
+    "qa:whatsapp": "node scripts/whatsapp-qa.mjs",
+    "qa:coverage": "node scripts/coverage-qa.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.9.1",
