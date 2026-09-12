@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   applicationName: siteConfig.shortName,
   alternates: { canonical: "/" },
+  robots: { index: true, follow: true },
   openGraph: { type: "website", locale: "es_MX", url: "/", siteName: siteConfig.shortName, title: siteConfig.name, description: siteConfig.description },
   twitter: { card: "summary_large_image", title: siteConfig.name, description: siteConfig.description },
 };

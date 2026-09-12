@@ -2,7 +2,7 @@ import { z } from "zod";
 
 export const quoteServices = [
   "Fletes Isla Mujeres y Cozumel",
-  "Recolección y Reparto",
+  "Recolección y reparto",
   "Almacenaje",
   "Carga nacional y local",
   "Soluciones 3PL",

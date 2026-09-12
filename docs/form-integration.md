@@ -37,3 +37,7 @@ Antes de producción evaluar honeypot, rate limiting y una solución de baja fri
 - `submitting`: intento de integración en curso.
 - `error`: canal de recepción no configurado o fallo real.
 - No existe `success` hasta que una integración real confirme la recepción.
+
+## Tests
+
+No se añadió un runner nuevo únicamente para cinco casos de schema. La validación se mantiene centralizada en Zod, y el contrato queda preparado para ser probado cuando exista la infraestructura de tests del proyecto o se incorpore el endpoint server-side.

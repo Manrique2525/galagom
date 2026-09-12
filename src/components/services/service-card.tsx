@@ -3,7 +3,7 @@ import type { Service } from "@/data/services";
 
 function ServiceIcon({ icon }: Pick<Service, "icon">) {
   const paths: Record<Service["icon"], string> = { route: "M4 17h16M4 12h9m-9-5h16M18 9l3 3-3 3", delivery: "M3 7h11v10H3zM14 10h4l3 3v4h-7zM7 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm12 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z", warehouse: "M3 10 12 4l9 6v10H3V10Zm5 10v-6h8v6M8 10h.01M12 10h.01M16 10h.01", cargo: "M5 7h14v12H5zM8 7V4h8v3M8 12h8M8 16h5", nodes: "M7 7h10v10H7zM12 4v3m0 10v3M4 12h3m10 0h3" };
-  return <svg aria-hidden="true" className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d={paths[icon]} /></svg>;
+  return <svg aria-hidden="true" focusable="false" className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d={paths[icon]} /></svg>;
 }
 
 export default function ServiceCard({ service, className = "" }: { service: Service; className?: string }) {

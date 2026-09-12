@@ -4,7 +4,7 @@ import Container from "@/components/ui/container";
 function RouteGraphic() {
   return <div className="hero-route relative h-full min-h-[290px] w-full overflow-hidden rounded-[var(--radius-lg)] border border-white/15 bg-white/[0.04] p-5 sm:min-h-[370px] sm:p-8" aria-hidden="true">
     <div className="absolute inset-0 opacity-30 [background-image:linear-gradient(rgb(255_255_255_/_0.12)_1px,transparent_1px),linear-gradient(90deg,rgb(255_255_255_/_0.12)_1px,transparent_1px)] [background-size:42px_42px]" />
-    <svg className="relative h-full min-h-[250px] w-full" viewBox="0 0 520 360" fill="none" preserveAspectRatio="xMidYMid meet">
+    <svg className="relative h-full min-h-[250px] w-full" viewBox="0 0 520 360" fill="none" preserveAspectRatio="xMidYMid meet" focusable="false">
       <path d="M52 276C126 244 126 112 238 142C335 168 341 255 466 80" stroke="rgb(255 255 255 / .25)" strokeWidth="1" strokeDasharray="5 8" />
       <path d="M52 276C126 244 126 112 238 142C335 168 341 255 466 80" stroke="#A9B9D8" strokeWidth="2" strokeDasharray="1 13" strokeLinecap="round" />
       <circle cx="52" cy="276" r="8" fill="#fff" /><circle cx="52" cy="276" r="18" stroke="#A9B9D8" strokeOpacity=".35" />

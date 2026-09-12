@@ -26,6 +26,9 @@ src/
     layout.tsx
     page.tsx
     cotizar/page.tsx
+    not-found.tsx
+    sitemap.ts
+    robots.ts
   components/
     layout/
       site-footer.tsx
@@ -50,6 +53,8 @@ src/
       quote-form.tsx
       field-error.tsx
       submit-status.tsx
+    seo/
+      site-structured-data.tsx
   data/site.ts
   data/services.ts
   data/process.ts
@@ -58,6 +63,7 @@ src/
   lib/metadata.ts
   lib/quote-schema.ts
   lib/quote-service.ts
+  lib/structured-data.ts
   styles/tokens.css
   types/site.ts
 ```
@@ -83,10 +89,10 @@ components/
 
 ## Metadata y assets
 
-La metadata global está en `layout.tsx`, con `metadataBase`, canonical raíz, Open Graph y Twitter. `src/lib/metadata.ts` deja preparado un helper para metadata específica por página.
+La metadata global está en `layout.tsx`, con `metadataBase`, canonical raíz, robots, Open Graph y Twitter. Las páginas `/` y `/cotizar` definen sus títulos, descripciones y canonicales específicos. `src/lib/metadata.ts` deja preparado un helper para metadata específica por página. `sitemap.ts` y `robots.ts` exponen únicamente las dos URLs publicables.
 
 El logo se sirve desde un asset identificado de GALAGOM mediante `next/image` y una regla explícita de `remotePatterns`. No se han integrado fotografías de logística porque Discovery no pudo confirmar su propiedad o representación corporativa.
 
 ## Siguientes fases
 
-El contenido permanece en Server Components siempre que es posible. Los visuales animados y el formulario son Client Components aislados. La capa `quote-service.ts` define el contrato de envío sin fingir una integración. El servidor futuro deberá repetir la validación y añadir protección anti-spam; actualmente no se envía email, no hay CRM y no se muestra éxito.
+El contenido permanece en Server Components siempre que es posible. Los visuales animados y el formulario son Client Components aislados. `site-structured-data.tsx` y `structured-data.ts` publican solo `Organization` y `WebSite` con datos confirmados. La capa `quote-service.ts` define el contrato de envío sin fingir una integración. El servidor futuro deberá repetir la validación y añadir protección anti-spam; actualmente no se envía email, no hay CRM y no se muestra éxito.
