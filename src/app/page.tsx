@@ -12,7 +12,7 @@ import SiteStructuredData from "@/components/seo/site-structured-data";
 
 export const metadata: Metadata = {
   title: "Transporte y Logística en Cancún",
-  description: "Soluciones de transporte, almacenaje, reparto y logística 3PL en Cancún y Quintana Roo. Más de 17 años de experiencia.",
+  description: "Transporte de carga, distribución, almacenaje y logística 3PL en Cancún y Quintana Roo. Soluciones integrales con presencia desde 2007.",
   alternates: { canonical: "/" },
 };
 
