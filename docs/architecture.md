@@ -68,6 +68,8 @@ src/
   types/site.ts
 ```
 
+Las fotografías temporales se sirven desde `public/images/temporary/` mediante `next/image`. No se usa hotlinking ni se requiere una dependencia adicional. Los assets deben sustituirse por fotografías corporativas cuando estén disponibles.
+
 Los módulos de Homepage Core y Logistics Experience se organizan así:
 
 ```text
@@ -91,7 +93,7 @@ components/
 
 La metadata global está en `layout.tsx`, con `metadataBase`, canonical raíz, robots, Open Graph y Twitter. Las páginas `/` y `/cotizar` definen sus títulos, descripciones y canonicales específicos. `src/lib/metadata.ts` deja preparado un helper para metadata específica por página. `sitemap.ts` y `robots.ts` exponen únicamente las dos URLs publicables.
 
-El logo se sirve desde un asset identificado de GALAGOM mediante `next/image` y una regla explícita de `remotePatterns`. No se han integrado fotografías de logística porque Discovery no pudo confirmar su propiedad o representación corporativa.
+El logo se sirve desde un asset identificado de GALAGOM mediante `next/image` y una regla explícita de `remotePatterns`. Las fotografías temporales se sirven localmente desde `public/images/temporary/` con `next/image`, y su procedencia está registrada en `docs/temporary-assets.md`.
 
 ## Siguientes fases
 

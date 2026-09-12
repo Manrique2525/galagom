@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Service } from "@/data/services";
 
 function ServiceIcon({ icon }: Pick<Service, "icon">) {
@@ -12,6 +13,7 @@ export default function ServiceCard({ service, featured = false }: { service: Se
   const index = featured ? "text-white/60" : "text-secondary";
   const link = featured ? "text-white" : "text-primary";
   return <article className={`group relative flex min-h-64 flex-col justify-between overflow-hidden rounded-[var(--radius-md)] border p-6 transition-all duration-[var(--motion-base)] hover:-translate-y-1 hover:border-primary-soft hover:shadow-[var(--shadow-soft)] sm:p-8 ${featured ? "border-primary bg-primary" : "border-border bg-white"}`}>
+    {service.image && <div className="relative -mx-6 -mt-6 mb-6 h-28 overflow-hidden sm:-mx-8 sm:-mt-8 sm:mb-8"><Image src={service.image} alt={service.imageAlt ?? ""} fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover transition-transform duration-[var(--motion-base)] group-hover:scale-[1.03]" /><div className="absolute inset-0 bg-primary-dark/35" /></div>}
     <div className={`absolute -right-10 -top-10 h-32 w-32 rounded-full transition-transform duration-[var(--motion-base)] group-hover:scale-150 ${featured ? "bg-white/[0.08]" : "bg-primary/[0.035]"}`} />
     <div className="relative flex items-start justify-between"><span className={`text-xs font-bold tracking-[0.18em] ${index}`}>{service.index}</span><span className={featured ? "text-white/70" : "text-primary-soft"}><ServiceIcon icon={service.icon} /></span></div>
     <div className="relative mt-12"><h3 className={`max-w-xs text-xl font-extrabold leading-tight tracking-[-0.025em] ${text}`}>{service.title}</h3><p className={`mt-3 max-w-sm text-sm leading-6 ${muted}`}>{service.description}</p></div>

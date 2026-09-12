@@ -9,8 +9,8 @@ type NativeButtonProps = SharedProps & ButtonHTMLAttributes<HTMLButtonElement> &
 type ButtonProps = LinkButtonProps | NativeButtonProps;
 
 const variants: Record<ButtonVariant, string> = {
-  primary: "bg-primary text-white hover:bg-primary-soft",
-  secondary: "border border-border bg-white text-primary hover:border-primary hover:bg-surface",
+  primary: "bg-primary !text-white hover:bg-primary-soft",
+  secondary: "border border-border bg-white !text-primary hover:border-primary hover:bg-surface",
   ghost: "text-primary hover:bg-surface",
 };
 const sizes: Record<ButtonSize, string> = { default: "min-h-11 px-5 text-sm", large: "min-h-14 px-7 text-base" };

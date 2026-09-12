@@ -76,3 +76,7 @@ Los fondos del hero, cobertura y CTA usan exclusivamente la gama azul corporativ
 - Los errores usan texto claro, color de error contenido y `aria-describedby`.
 - La composición del formulario es de una columna en móvil y usa dos columnas selectivamente desde `sm`.
 - Los controles mantienen altura táctil cómoda y no dependen de hover.
+
+## Temporary photography
+
+Las fotografías actuales de Pexels son un recurso temporal y siempre se presentan como contexto de transporte/logística, nunca como flota, personal o instalaciones de GALAGOM. Se usa overlay azul corporativo y `object-cover` para integrarlas con los diagramas. El Hero es la única imagen con `priority`; las imágenes de cards y Nosotros son lazy por defecto. Fuentes y sustitución: `docs/temporary-assets.md`.

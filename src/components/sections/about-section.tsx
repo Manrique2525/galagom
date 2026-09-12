@@ -1,8 +1,11 @@
+import Image from "next/image";
 import Container from "@/components/ui/container";
 import Reveal from "@/components/ui/reveal";
 
 function OperationsGraphic() {
   return <div className="relative min-h-[390px] overflow-hidden rounded-[var(--radius-lg)] bg-primary-dark p-7 text-white sm:min-h-[460px] sm:p-10" aria-hidden="true">
+    <Image src="/images/temporary/logistics-worker.webp" alt="Trabajador en una operación de logística" fill sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover opacity-35" />
+    <div className="absolute inset-0 bg-primary-dark/75" />
     <div className="absolute inset-0 opacity-25 [background-image:linear-gradient(rgb(255_255_255_/_0.12)_1px,transparent_1px),linear-gradient(90deg,rgb(255_255_255_/_0.12)_1px,transparent_1px)] [background-size:38px_38px]" />
     <div className="absolute left-1/2 top-1/2 h-px w-[75%] -translate-x-1/2 bg-gradient-to-r from-transparent via-[#A9B9D8] to-transparent" />
     <div className="absolute left-[14%] top-[38%] h-3 w-3 rounded-full bg-white shadow-[0_0_0_9px_rgb(169_185_216_/_0.18)]" />
