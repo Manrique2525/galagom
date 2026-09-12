@@ -51,4 +51,6 @@ Manrope es la única familia actual. Se carga mediante `next/font/google` y se e
 
 ## Motion principles
 
-Foundation usa solo transiciones CSS de color, border y focus. No hay reveals, parallax, rutas ni scroll animations. Se respetará `prefers-reduced-motion` en todo el proyecto; la animación de fases posteriores será progresiva y no necesaria para comprender el contenido.
+Homepage Core usa Motion únicamente para reveals de secciones y cards cuando entran al viewport. Las transiciones CSS cubren color, border, elevación y desplazamientos mínimos. No hay parallax, rutas animadas ni animaciones infinitas. `useReducedMotion` elimina el desplazamiento y deja el contenido visible directamente; la animación nunca es necesaria para comprender el contenido.
+
+Los fondos del hero y CTA usan exclusivamente la gama azul corporativa, con grid técnico y rutas SVG estáticas como lenguaje visual de movimiento.

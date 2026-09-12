@@ -9,11 +9,11 @@
 - ESLint `9` con configuración de Next.
 - Manrope con `next/font`.
 
-No se instalaron Motion, Lucide, React Hook Form, Zod, mapas, Playwright ni UI kits. Se añadirán únicamente al llegar a una fase que los necesite.
+Se añadió `motion` para los reveals ligeros de Homepage Core. No se instalaron Lucide, React Hook Form, Zod, mapas, Playwright ni UI kits.
 
 ## Rendering
 
-`src/app/layout.tsx`, `page.tsx`, header, footer y UI base son Server Components. Solo `mobile-navigation.tsx` es Client Component porque necesita estado y escucha de `Escape` para cerrar el menú.
+`src/app/layout.tsx`, `page.tsx`, contenido de hero, servicios, nosotros, CTA, footer y UI base son Server Components. `site-header.tsx` es Client Component para observar la salida del hero mediante `IntersectionObserver` y cambiar de header transparente a header claro. `mobile-navigation.tsx` gestiona estado y `Escape`. `reveal.tsx` es un wrapper Client mínimo para Motion y reduced motion.
 
 No se usa estado global. Los datos públicos se centralizan en `src/data/site.ts` y los tipos simples viven en `src/types/site.ts`.
 
@@ -36,7 +36,17 @@ src/
       button.tsx
       container.tsx
       section-heading.tsx
+      reveal.tsx
+    sections/
+      hero.tsx
+      trust-strip.tsx
+      about-section.tsx
+      final-cta.tsx
+    services/
+      service-card.tsx
+      services-grid.tsx
   data/site.ts
+  data/services.ts
   lib/metadata.ts
   styles/tokens.css
   types/site.ts
@@ -47,7 +57,7 @@ src/
 - Componentes con export default y una responsabilidad clara.
 - HTML semántico, landmarks y enlaces reales.
 - `Button` usa `Link` para destinos navegables y `<button>` para acciones nativas.
-- Los IDs de navegación (`servicios`, `cobertura`, `nosotros`, `contacto`, `cotizar`) se preparan como anchors de fases futuras; la pantalla temporal no inventa esas secciones.
+- Los IDs de Homepage Core son `servicios`, `nosotros` y `contacto`; `cobertura` queda preparado en la navegación para la fase posterior.
 - No se publican schemas estructurados en Foundation: todavía no hay páginas comerciales finales ni datos locales completos confirmados.
 
 ## Metadata y assets
@@ -58,4 +68,4 @@ El logo se sirve desde un asset identificado de GALAGOM mediante `next/image` y 
 
 ## Siguientes fases
 
-La siguiente fase puede reemplazar `src/app/page.tsx` por la homepage comercial y añadir datos de servicios. Después se podrán incorporar Motion para interacciones con propósito, y React Hook Form/Zod cuando se implemente la cotización. Foundation debe permanecer libre de esas responsabilidades.
+La siguiente fase puede añadir cobertura y proceso sin convertir la página completa en Client Component. React Hook Form/Zod siguen reservados para la cotización. El formulario, las páginas internas y la cobertura no forman parte de esta entrega.

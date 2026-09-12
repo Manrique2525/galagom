@@ -4,7 +4,7 @@ import Container from "@/components/ui/container";
 import { siteConfig } from "@/data/site";
 
 export default function SiteFooter() {
-  return <footer className="bg-primary-dark py-12 text-white" id="contacto">
+  return <footer className="bg-primary-dark py-12 text-white">
     <Container>
       <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr]">
         <div>
@@ -17,7 +17,7 @@ export default function SiteFooter() {
         </div>
         <div>
           <h2 className="text-sm font-bold uppercase tracking-[0.15em] text-white/60">Sitio</h2>
-          <Link className="mt-4 inline-block text-sm text-white/80 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" href="/privacidad">Aviso de privacidad</Link>
+          <span className="mt-4 inline-block text-sm text-white/60">Aviso de privacidad</span>
         </div>
       </div>
       <div className="mt-12 border-t border-white/15 pt-5 text-xs text-white/50">Derechos Reservados © {new Date().getFullYear()} | GALAGOM Soluciones Logísticas</div>
