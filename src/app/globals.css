@@ -19,10 +19,8 @@
 }
 
 .galagom-map-pin { background: transparent; border: 0; }
-.galagom-map-pin__head { display: block; width: 28px; height: 28px; border: 2px solid #b91c1c; border-radius: 50% 50% 50% 0; background: #dc2626; box-shadow: 0 2px 5px rgb(21 27 38 / 0.25); transform: rotate(-45deg); }
-.galagom-map-pin__head--primary { width: 34px; height: 34px; }
-.galagom-map-pin__dot { display: block; width: 8px; height: 8px; margin: 8px auto 0; border-radius: 50%; background: #fff; }
-.galagom-map-pin__head--primary .galagom-map-pin__dot { width: 10px; height: 10px; margin-top: 10px; }
+.galagom-map-pin__head { display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; border: 3px solid #ffffff; border-radius: 50%; background: #203050; box-shadow: 0 2px 8px rgb(21 27 38 / 0.35); }
+.galagom-map-pin__dot { display: block; width: 10px; height: 10px; border-radius: 50%; background: #ffffff; }
 
 .tw-char { transition: opacity 24ms ease; }
 

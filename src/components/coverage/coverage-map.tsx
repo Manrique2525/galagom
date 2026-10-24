@@ -6,13 +6,13 @@ import { mapConfig } from "@/data/map-config";
 
 type MapStatus = "loading" | "ready" | "error";
 
-function pinIcon(L: typeof import("leaflet"), primary = false) {
+function pinIcon(L: typeof import("leaflet")) {
   return L.divIcon({
     className: "galagom-map-pin",
-    html: `<span class="galagom-map-pin__head${primary ? " galagom-map-pin__head--primary" : ""}"><span class="galagom-map-pin__dot"></span></span>`,
-    iconSize: primary ? [34, 42] : [28, 36],
-    iconAnchor: primary ? [17, 42] : [14, 36],
-    popupAnchor: [0, primary ? -38 : -32],
+    html: `<span class="galagom-map-pin__head"><span class="galagom-map-pin__dot"></span></span>`,
+    iconSize: [30, 30],
+    iconAnchor: [15, 15],
+    popupAnchor: [0, -19],
   });
 }
 
@@ -34,7 +34,7 @@ export default function CoverageMap() {
 
         const bounds = L.latLngBounds([]);
         coverageLocations.forEach((location) => {
-          const marker = L.marker([location.position.lat, location.position.lng], { title: location.name, alt: location.name, icon: pinIcon(L, location.primary) }).addTo(map as import("leaflet").Map);
+          const marker = L.marker([location.position.lat, location.position.lng], { title: location.name, alt: location.name, icon: pinIcon(L) }).addTo(map as import("leaflet").Map);
           const popup = document.createElement("div");
           const title = document.createElement("strong");
           title.textContent = location.name;
@@ -45,9 +45,7 @@ export default function CoverageMap() {
           bounds.extend([location.position.lat, location.position.lng]);
         });
 
-        const endpoints: [number, number][] = coverageLocations.map((location) => [location.position.lat, location.position.lng]);
-        L.polyline(endpoints, { color: "#203050", weight: 2.5, opacity: 0.6, dashArray: "10 10" }).addTo(map as import("leaflet").Map);
-        map.fitBounds(bounds, { padding: [48, 48], maxZoom: 5 });
+        map.fitBounds(bounds, { padding: [56, 56], maxZoom: 5 });
         setStatus("ready");
       } catch {
         if (!cancelled) setStatus("error");
