@@ -9,11 +9,14 @@ import type { NavItem } from "@/types/site";
 
 const menuItems: NavItem[] = [
   { label: "Inicio", href: "/" },
-  { label: "Servicios", href: "/#servicios" },
-  { label: "Proceso", href: "/#proceso" },
+  { label: "¿Qué ofrecemos?", href: "/#proceso" },
+  { label: "Logística", href: "/#logistica" },
+  { label: "Almacenaje", href: "/#almacenaje" },
+  { label: "Distribución", href: "/#distribucion" },
+  { label: "Soluciones 3PL", href: "/#soluciones-3pl" },
   { label: "Cobertura", href: "/#cobertura" },
   { label: "Nosotros", href: "/#nosotros" },
-  { label: "Contacto", href: "/#cotizar" },
+  { label: "Cotizar", href: "/#cotizar" },
 ];
 
 export default function MobileNavigation() {
