@@ -35,9 +35,7 @@ export default function ProcessSection() {
             </p>
           </div>
           <div>
-            <h3 className="mb-6 text-lg font-bold tracking-[-0.02em] text-text">
-              Explicación complementaria del proceso logístico
-            </h3>
+     
             <ProcessTimeline steps={processSteps} />
           </div>
         </div>
