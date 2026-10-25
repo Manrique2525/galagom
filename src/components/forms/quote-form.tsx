@@ -8,6 +8,7 @@ import Button from "@/components/ui/button";
 import FieldError from "@/components/forms/field-error";
 import SubmitStatus from "@/components/forms/submit-status";
 import { quoteSchema, quoteServices, type QuoteFormData } from "@/lib/quote-schema";
+import { buildQuoteWhatsAppUrl } from "@/lib/quote/whatsapp";
 
 const inputClass = "w-full rounded-[var(--radius-sm)] border border-border bg-surface px-4 py-3 text-base text-text outline-none transition-colors placeholder:text-text-muted/70 focus:border-primary focus:ring-2 focus:ring-primary/20";
 const visibleFields = ["name", "phone", "email", "service", "origin", "destination", "date", "description"] as const satisfies readonly FieldPath<QuoteFormData>[];
@@ -74,6 +75,12 @@ export default function QuoteForm() {
         try { window.sessionStorage.removeItem(QUOTE_DRAFT_KEY); } catch { /* sin almacenamiento */ }
         reset();
         setStatus("success");
+        try {
+          const whatsappUrl = buildQuoteWhatsAppUrl(data);
+          window.location.assign(whatsappUrl);
+        } catch {
+          /* Si falla la redirección, mantenemos el estado de éxito */
+        }
         return;
       }
       if (response.status === 422 && payload.errors) {
