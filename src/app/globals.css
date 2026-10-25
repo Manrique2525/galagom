@@ -24,6 +24,21 @@ section[id], [id].anchor-target { scroll-margin-top: 6rem; }
 .galagom-map-pin__head { display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; border: 3px solid #ffffff; border-radius: 50%; background: #203050; box-shadow: 0 2px 8px rgb(21 27 38 / 0.35); }
 .galagom-map-pin__dot { display: block; width: 10px; height: 10px; border-radius: 50%; background: #ffffff; }
 
+.galagom-map-pin--hq .galagom-map-pin__head {
+  width: 40px;
+  height: 40px;
+  border-width: 4px;
+  background: #203050;
+  box-shadow: 0 0 0 6px rgb(48 70 111 / 0.22), 0 0 0 12px rgb(48 70 111 / 0.1), 0 4px 14px rgb(21 27 38 / 0.4);
+  animation: galagom-map-hq-pulse 2600ms ease-in-out infinite;
+}
+.galagom-map-pin--hq .galagom-map-pin__dot { width: 13px; height: 13px; }
+
+@keyframes galagom-map-hq-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
 .tw-char { transition: opacity 24ms ease; }
 
 .tw-cursor { display: inline-block; width: 2px; height: 1.05em; margin-left: 3px; vertical-align: baseline; background: rgb(255 255 255 / 0.9); }

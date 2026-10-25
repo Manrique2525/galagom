@@ -6,13 +6,13 @@ import { mapConfig } from "@/data/map-config";
 
 type MapStatus = "loading" | "ready" | "error";
 
-function pinIcon(L: typeof import("leaflet")) {
+function pinIcon(L: typeof import("leaflet"), headquarters = false) {
   return L.divIcon({
-    className: "galagom-map-pin",
+    className: headquarters ? "galagom-map-pin galagom-map-pin--hq" : "galagom-map-pin",
     html: `<span class="galagom-map-pin__head"><span class="galagom-map-pin__dot"></span></span>`,
-    iconSize: [30, 30],
-    iconAnchor: [15, 15],
-    popupAnchor: [0, -19],
+    iconSize: headquarters ? [40, 40] : [30, 30],
+    iconAnchor: headquarters ? [20, 20] : [15, 15],
+    popupAnchor: headquarters ? [0, -24] : [0, -19],
   });
 }
 
@@ -40,10 +40,14 @@ export default function CoverageMap() {
         }).addTo(map);
 
         const bounds = L.latLngBounds([]);
-        coverageLocations.forEach((location) => {
+        const orderedLocations = [...coverageLocations].sort(
+          (a, b) => Number(a.headquarters ?? false) - Number(b.headquarters ?? false)
+        );
+        orderedLocations.forEach((location) => {
+          const label = location.headquarters ? `${location.name} — Sede principal` : location.name;
           const marker = L.marker(
             [location.position.lat, location.position.lng],
-            { title: location.name, alt: location.name, icon: pinIcon(L) }
+            { title: label, alt: label, icon: pinIcon(L, location.headquarters) }
           ).addTo(map as import("leaflet").Map);
           const popup = document.createElement("div");
           const title = document.createElement("strong");
