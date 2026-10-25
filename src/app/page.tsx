@@ -336,21 +336,26 @@ export default function Home() {
                 DISTRIBUCIÓN
               </p>
               <h2 className="text-4xl font-extrabold leading-tight tracking-[-0.04em] text-text sm:text-6xl">
-                Tu mercancía en movimiento, hacia el destino acordado
+                Recogemos tu mercancía y la llevamos al destino que nos indiques
               </h2>
               <p className="mt-6 text-base leading-7 text-text-muted sm:text-lg">
-                La distribución conecta la mercancía con los puntos donde se
-                necesita. Implica organizar los despachos, coordinar los
-                movimientos y gestionar las entregas de acuerdo con el destino,
-                las características de la carga y las necesidades de cada
-                operación.
+                En GALAGOM ofrecemos servicios de distribución y transporte de
+                mercancía desde el punto de recolección hasta el destino que nos
+                asigne cada cliente. Nuestro operador se encarga de realizar el
+                servicio conforme a las instrucciones y condiciones acordadas
+                para cada traslado.
               </p>
               <p className="mt-4 text-base leading-7 text-text-muted sm:text-lg">
-                En GALAGOM coordinamos soluciones de distribución y transporte
-                para facilitar el movimiento de mercancía dentro del alcance del
-                servicio contratado. Buscamos que cada operación tenga una
-                organización clara desde la preparación del despacho hasta la
-                entrega prevista.
+                Cada producto tiene características y necesidades diferentes.
+                Por eso, seleccionamos y, cuando la operación lo requiere,
+                adecuamos la unidad de transporte de acuerdo con el tipo de
+                mercancía, su volumen, sus dimensiones y las condiciones
+                necesarias para su traslado.
+              </p>
+              <p className="mt-4 text-base leading-7 text-text-muted sm:text-lg">
+                Coordinamos cada servicio de acuerdo con el origen, el destino y
+                los requerimientos del cliente, brindando una solución flexible
+                para llevar su mercancía al lugar indicado.
               </p>
               <h3 className="mt-10 text-xl font-extrabold tracking-[-0.02em] text-text sm:text-2xl">
                 ¿Qué hacemos en distribución?
@@ -360,39 +365,50 @@ export default function Home() {
                   <span className="mt-2 h-1.5 w-1.5 rounded-full bg-secondary"></span>
                   <span>
                     <strong className="text-text">
-                      Coordinación de despachos:
+                      Recolección de mercancía:
                     </strong>{" "}
-                    organizamos las salidas de mercancía según las necesidades
-                    de la operación.
+                    acudimos al punto que nos indique el cliente para recoger
+                    sus productos.
                   </span>
                 </li>
                 <li className="flex items-start gap-3 text-base text-text-muted">
                   <span className="mt-2 h-1.5 w-1.5 rounded-full bg-secondary"></span>
                   <span>
                     <strong className="text-text">
-                      Transporte de mercancía:
+                      Traslado al destino asignado:
                     </strong>{" "}
-                    coordinamos el traslado hacia los destinos acordados.
+                    transportamos la mercancía hasta el lugar solicitado,
+                    conforme a las condiciones acordadas.
                   </span>
                 </li>
                 <li className="flex items-start gap-3 text-base text-text-muted">
                   <span className="mt-2 h-1.5 w-1.5 rounded-full bg-secondary"></span>
                   <span>
                     <strong className="text-text">
-                      Organización de entregas:
+                      Unidad adecuada para cada producto:
                     </strong>{" "}
-                    consideramos las necesidades del destinatario y las
-                    condiciones establecidas para el servicio.
+                    seleccionamos o adecuamos la unidad de transporte según las
+                    características y necesidades de la carga.
                   </span>
                 </li>
                 <li className="flex items-start gap-3 text-base text-text-muted">
                   <span className="mt-2 h-1.5 w-1.5 rounded-full bg-secondary"></span>
                   <span>
                     <strong className="text-text">
-                      Distribución según la operación:
+                      Operador asignado al servicio:
                     </strong>{" "}
-                    adaptamos la coordinación al volumen, el origen, el destino
-                    y el alcance requerido.
+                    contamos con un operador que realiza el traslado siguiendo
+                    las instrucciones de la operación.
+                  </span>
+                </li>
+                <li className="flex items-start gap-3 text-base text-text-muted">
+                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-secondary"></span>
+                  <span>
+                    <strong className="text-text">
+                      Coordinación de entrega:
+                    </strong>{" "}
+                    organizamos el servicio considerando el destino y los
+                    requerimientos de recepción indicados por el cliente.
                   </span>
                 </li>
               </ul>
