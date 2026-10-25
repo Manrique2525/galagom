@@ -3,7 +3,7 @@ import type { SiteConfig } from "@/types/site";
 export const siteConfig: SiteConfig = {
   name: "GALAGOM - Soluciones Logísticas",
   shortName: "GALAGOM",
-  description: "Soluciones de transporte y logística con cobertura nacional en la República Mexicana, adaptadas a las necesidades de cada operación.",
+  description: "Soluciones de transporte y logística en Cancún con cobertura nacional en la República Mexicana, adaptadas a las necesidades de cada operación.",
   url: "https://www.galagom.com",
   phone: {
     local: "9982225373",

@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import Container from "@/components/ui/container";
+import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = {
-  title: "Aviso de privacidad",
-  description: "Aviso de privacidad de GALAGOM Soluciones Logísticas.",
-  alternates: { canonical: "/privacidad" },
+  ...createPageMetadata(
+    "Aviso de privacidad",
+    "Aviso de privacidad de GALAGOM Soluciones Logísticas.",
+    "/privacidad",
+  ),
   robots: { index: false, follow: true },
 };
 

@@ -5,6 +5,7 @@ import SiteHeader from "@/components/layout/site-header";
 import SkipLink from "@/components/layout/skip-link";
 import WhatsAppFloatingButton from "@/components/ui/whatsapp-floating-button";
 import { siteConfig } from "@/data/site";
+import { socialImage } from "@/lib/metadata";
 import "./globals.css";
 
 const manrope = Manrope({ variable: "--font-manrope", subsets: ["latin"] });
@@ -14,10 +15,21 @@ export const metadata: Metadata = {
   title: { default: siteConfig.name, template: `%s | ${siteConfig.shortName}` },
   description: siteConfig.description,
   applicationName: siteConfig.shortName,
-  alternates: { canonical: "/" },
   robots: { index: true, follow: true },
-  openGraph: { type: "website", locale: "es_MX", url: "/", siteName: siteConfig.shortName, title: siteConfig.name, description: siteConfig.description },
-  twitter: { card: "summary_large_image", title: siteConfig.name, description: siteConfig.description },
+  openGraph: {
+    type: "website",
+    locale: "es_MX",
+    siteName: siteConfig.shortName,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: [socialImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: [socialImage],
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

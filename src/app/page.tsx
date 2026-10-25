@@ -7,14 +7,14 @@ import ThreePlSection from "@/components/three-pl/three-pl-section";
 import QuoteCta from "@/components/sections/quote-cta";
 import Container from "@/components/ui/container";
 import SiteStructuredData from "@/components/seo/site-structured-data";
+import { createPageMetadata } from "@/lib/metadata";
 import Image from "next/image";
 
-export const metadata: Metadata = {
-  title: "Transporte y logística nacional en México",
-  description:
-    "Soluciones de transporte, carga, almacenaje y logística con cobertura nacional en la República Mexicana, adaptadas a las necesidades de cada operación.",
-  alternates: { canonical: "/" },
-};
+export const metadata: Metadata = createPageMetadata(
+  "Transporte y logística en Cancún",
+  "Empresa de transporte y logística en Cancún con cobertura nacional. Fletes, carga, almacenaje y 3PL adaptados a tu operación. Cotiza tu servicio.",
+  "/",
+);
 
 export default function Home() {
   return (
