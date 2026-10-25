@@ -14,7 +14,8 @@ describe("quote email text", () => {
       description: "<script>alert(1)</script>",
       website: "",
     });
-    expect(text).toContain("<script>alert(1)</script>");
+    expect(text).toContain("&lt;script&gt;alert(1)&lt;/script&gt;");
+    expect(text).not.toContain("<script>");
     expect(text).not.toContain("<p>");
   });
 });
