@@ -132,17 +132,6 @@ export default function Hero() {
                 ↗
               </span>
             </Button>
-            <Button
-              href="#servicios"
-              size="large"
-              variant="ghost"
-              className="!text-white hover:bg-white/10 hover:!text-white"
-            >
-              Conocer servicios{" "}
-              <span className="ml-3" aria-hidden="true">
-                ↓
-              </span>
-            </Button>
           </div>
         </div>
         <div
