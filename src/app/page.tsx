@@ -110,28 +110,42 @@ export default function Home() {
         className="bg-white py-[var(--section-space-mobile)] sm:py-[var(--section-space-desktop)]"
       >
         <Container>
-          <div className="max-w-3xl">
-            <p className="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-secondary">
-              ALMACENAJE
-            </p>
-            <h2 className="text-4xl font-extrabold leading-tight tracking-[-0.04em] text-text sm:text-6xl">
-              Espacios y control de inventario adaptados a tu operación
-            </h2>
-            <p className="mt-6 text-base leading-7 text-text-muted sm:text-lg">
-              Cada empresa tiene necesidades diferentes para resguardar y
-              administrar su mercancía. Por eso, las soluciones de almacenaje
-              deben considerar el volumen de los productos, la frecuencia de
-              movimiento, las características de los artículos y el nivel de
-              control que requiere cada operación.
-            </p>
-            <p className="mt-4 text-base leading-7 text-text-muted sm:text-lg">
-              GALAGOM presenta alternativas de almacenaje que pueden adaptarse a
-              distintas necesidades comerciales, desde operaciones que requieren
-              espacio dedicado hasta esquemas compartidos para volúmenes
-              variables. La modalidad y las condiciones se determinan según los
-              requerimientos de cada cliente y la capacidad operativa
-              disponible.
-            </p>
+          <div className="grid gap-12 lg:grid-cols-[1fr_1.05fr] lg:items-center lg:gap-20">
+            <div className="max-w-3xl">
+              <p className="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-secondary">
+                ALMACENAJE
+              </p>
+              <h2 className="text-4xl font-extrabold leading-tight tracking-[-0.04em] text-text sm:text-6xl">
+                Espacios y control de inventario adaptados a tu operación
+              </h2>
+              <p className="mt-6 text-base leading-7 text-text-muted sm:text-lg">
+                Cada empresa tiene necesidades diferentes para resguardar y
+                administrar su mercancía. Por eso, las soluciones de almacenaje
+                deben considerar el volumen de los productos, la frecuencia de
+                movimiento, las características de los artículos y el nivel de
+                control que requiere cada operación.
+              </p>
+              <p className="mt-4 text-base leading-7 text-text-muted sm:text-lg">
+                GALAGOM presenta alternativas de almacenaje que pueden adaptarse
+                a distintas necesidades comerciales, desde operaciones que
+                requieren espacio dedicado hasta esquemas compartidos para
+                volúmenes variables. La modalidad y las condiciones se
+                determinan según los requerimientos de cada cliente y la
+                capacidad operativa disponible.
+              </p>
+            </div>
+            <div className="relative mx-auto w-full max-w-xl">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--image-radius)] bg-primary-dark">
+                <Image
+                  src="/images/lading/almacenaje.jpeg"
+                  alt="Espacio de almacenaje y control de inventario"
+                  fill
+                  sizes="(min-width: 1024px) 42vw, 100vw"
+                  data-landing="main"
+                  className="object-contain object-center"
+                />
+              </div>
+            </div>
           </div>
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
             <article className="rounded-[var(--radius-lg)] border border-border bg-white p-8 shadow-sm">
