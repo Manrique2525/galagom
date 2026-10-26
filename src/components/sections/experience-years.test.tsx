@@ -2,16 +2,20 @@ import { describe, expect, it } from "vitest";
 import { getYearsOfExperience } from "@/components/sections/experience-years";
 
 describe("getYearsOfExperience", () => {
-  it("returns 19 years in 2026", () => {
-    expect(getYearsOfExperience(new Date("2026-01-01T00:00:00Z"))).toBe(19);
+  it("keeps 18 years before the July 15 anniversary in 2026", () => {
+    expect(getYearsOfExperience(new Date("2026-07-15T04:59:59Z"))).toBe(18);
   });
 
-  it("returns 20 years in 2027", () => {
-    expect(getYearsOfExperience(new Date("2027-06-15T00:00:00Z"))).toBe(20);
+  it("increments to 19 years exactly on July 15, 2026 in Cancún", () => {
+    expect(getYearsOfExperience(new Date("2026-07-15T05:00:00Z"))).toBe(19);
   });
 
-  it("returns 21 years in 2028", () => {
-    expect(getYearsOfExperience(new Date("2028-12-31T00:00:00Z"))).toBe(21);
+  it("keeps 19 years before the July 15 anniversary in 2027", () => {
+    expect(getYearsOfExperience(new Date("2027-07-15T04:59:59Z"))).toBe(19);
+  });
+
+  it("increments to 20 years exactly on July 15, 2027 in Cancún", () => {
+    expect(getYearsOfExperience(new Date("2027-07-15T05:00:00Z"))).toBe(20);
   });
 
   it("does not return negative years for dates before start year", () => {

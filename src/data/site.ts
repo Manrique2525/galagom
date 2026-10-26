@@ -12,7 +12,7 @@ export const siteConfig: SiteConfig = {
     telHref: "tel:+529982225373",
   },
   location: "Cancún, Quintana Roo, México",
-  email: "hola@galagom.com",
+  email: "contacto@galagom.com",
   navigation: [
     { label: "Inicio", href: "/" },
     { label: "Servicios", href: "/#servicios" },
